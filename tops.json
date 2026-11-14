@@ -2,7 +2,7 @@
   "updated": "14.11.2026 22:17",
   "tops": {
     "kills": [
-      {"place":1,"name":"MIllsiXX","value":17,"text":"17"},
+      {"place":1,"name":"MIllsiXX","value":18,"text":"18"},
       {"place":2,"name":"ComBane","value":14,"text":"14"},
       {"place":3,"name":"MadFlaps","value":13,"text":"13"},
       {"place":4,"name":"KUpy_AStro","value":11,"text":"11"},
@@ -22,8 +22,8 @@
       {"place":6,"name":"Cool_HuZ_NiK","value":13,"text":"13"},
       {"place":7,"name":"samurai5","value":11,"text":"11"},
       {"place":8,"name":"MIllsiXX","value":10,"text":"10"},
-      {"place":9,"name":"HeavyEnvy","value":9,"text":"9"},
-      {"place":10,"name":"Sigma22845255","value":9,"text":"9"}
+      {"place":9,"name":"Sigma22845255","value":10,"text":"10"},
+      {"place":10,"name":"HeavyEnvy","value":9,"text":"9"}
     ],
     "time": [
       {"place":1,"name":"MadFlaps","value":387,"text":"6h 27m"},
