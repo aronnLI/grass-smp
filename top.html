@@ -121,6 +121,18 @@
 
         .page-hero p { color: var(--text-muted); max-width: 600px; margin: 14px auto 0; }
 
+        .status-line {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--teal);
+            background: rgba(0, 255, 204, 0.07);
+            border: 1px solid rgba(0, 255, 204, 0.25);
+            border-radius: 30px;
+        }
+
         /* ------- Сетка карточек ------- */
         .content {
             flex: 1;
@@ -279,6 +291,7 @@
     <div class="page-hero">
         <h1>👑 Топ игроков</h1>
         <p>Лучшие игроки Grass SMP — лидерборды обновляются автоматически с сервера.</p>
+        <div class="status-line" id="topStatus">Загрузка данных…</div>
     </div>
 
     <!-- Карточки с таблицами -->
@@ -357,8 +370,17 @@
         });
 
         // ========== ТОПЫ: загрузка с tops.json ==========
-        const TOP_SOURCE = 'tops.json'; // файл лежит рядом с top.html в репозитории
+        // Читаем с raw.githubusercontent.com — там файл обновляется сразу после
+        // коммита плагина, без ожидания пересборки GitHub Pages и его кэша CDN (~10 мин).
+        // Замени ник/репо под свой: https://raw.githubusercontent.com/НИК/РЕПО/ВЕТКА/tops.json
+        const RAW_OWNER = 'aronnli';
+        const RAW_REPO = 'grass-smp';
+        const RAW_BRANCH = 'main';
+        const TOP_SOURCE = 'https://raw.githubusercontent.com/' + RAW_OWNER + '/' + RAW_REPO + '/' + RAW_BRANCH + '/tops.json';
+        const TOP_REFRESH_MS = 30000; // обновление каждые 30 сек
         const TOP_SIZE = 10;
+
+        const statusLine = document.getElementById('topStatus');
 
         const bodies = {
             kills:  document.getElementById('topBodyKills'),
@@ -402,11 +424,15 @@
         }
 
         function loadTops() {
-            fetch(TOP_SOURCE, { cache: 'no-store' })
+            // кэш-бастинг: добавляем случайный параметр, чтобы пробить кэш
+            fetch(TOP_SOURCE + '?_=' + Date.now(), { cache: 'no-store' })
                 .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
                 .then(data => {
                     const tops = data.tops || {};
                     Object.keys(bodies).forEach(key => renderTable(key, tops[key] || []));
+                    if (statusLine && data.updated) {
+                        statusLine.textContent = 'Обновлено: ' + data.updated;
+                    }
                 })
                 .catch(() => {
                     Object.keys(bodies).forEach(key => {
@@ -419,7 +445,7 @@
         }
 
         loadTops();
-        setInterval(loadTops, 120000);
+        setInterval(loadTops, TOP_REFRESH_MS);
     </script>
 
 </body>
