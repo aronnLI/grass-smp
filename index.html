@@ -581,6 +581,13 @@
             box-shadow: 0 0 40px rgba(255, 92, 92, 0.18);
         }
 
+        /* ошибка API — жёлтая плашка */
+        .server-status.error {
+            background: linear-gradient(135deg, rgba(255, 200, 60, 0.22), rgba(255, 200, 60, 0.08));
+            border-color: rgba(255, 200, 60, 0.55);
+            box-shadow: 0 0 40px rgba(255, 200, 60, 0.18);
+        }
+
         .status-dot {
             flex-shrink: 0;
             width: 18px;
@@ -600,8 +607,9 @@
             box-shadow: 0 0 16px var(--red);
         }
 
-        .server-status.loading .status-dot {
-            animation: pulseDot 1.6s infinite;
+        .server-status.error .status-dot {
+            background: #ffc83c;
+            box-shadow: 0 0 16px #ffc83c;
         }
 
         @keyframes pulseDot {
@@ -618,6 +626,7 @@
         }
 
         .server-status.offline .status-text .status-label { color: #ff8a8a; }
+        .server-status.error .status-text .status-label { color: #ffd76a; }
 
         .status-text .status-meta {
             color: var(--text-muted);
@@ -937,75 +946,55 @@
         const SERVER_PORT = 31598;
         const STATUS_EL = document.getElementById('serverStatus');
 
-        function renderServerStatus(mode, data) {
+        function updateServerStatus() {
             if (!STATUS_EL) return;
 
-            // сбрасываем классы
-            STATUS_EL.classList.remove('online', 'offline');
+            // сбрасываем классы и показываем "загрузку"
+            STATUS_EL.classList.remove('online', 'offline', 'error');
+            STATUS_EL.innerHTML = `
+                <div class="status-dot"></div>
+                <div class="status-text">
+                    <div class="status-label">⏳ Проверяем сервер…</div>
+                </div>`;
 
-            if (mode === 'online') {
-                STATUS_EL.classList.add('online');
-                STATUS_EL.innerHTML = `
-                    <div class="status-dot"></div>
-                    <div class="status-text">
-                        <div class="status-label">🟢 Сервер онлайн</div>
-                        <div class="status-meta">Онлайн: ${data.players.online} / ${data.players.max}</div>
-                        <div class="status-meta">Версия: ${data.version}</div>
-                    </div>`;
-            } else if (mode === 'offline') {
-                STATUS_EL.classList.add('offline');
-                STATUS_EL.innerHTML = `
-                    <div class="status-dot"></div>
-                    <div class="status-text">
-                        <div class="status-label">🔴 Сервер офлайн</div>
-                        <div class="status-meta">Попробуем снова через 60 секунд.</div>
-                    </div>`;
-            } else {
-                // loading
-                STATUS_EL.innerHTML = `
-                    <div class="status-dot"></div>
-                    <div class="status-text">
-                        <div class="status-label status-error">Загрузка статуса…</div>
-                    </div>`;
-            }
-        }
-
-        function fetchServerStatus() {
-            if (!STATUS_EL) return;
-            renderServerStatus('loading');
-
-            // JSONP: работает даже при открытии index.html через file://
-            const cbName = '__mcstatus' + Date.now();
-            const script = document.createElement('script');
-            const onDone = (data) => {
-                cleanup();
-                if (data && data.online === true) {
-                    renderServerStatus('online', data);
-                } else {
-                    renderServerStatus('offline');
-                }
-            };
-            const onFail = () => {
-                cleanup();
-                renderServerStatus('offline');
-            };
-            function cleanup() {
-                delete window[cbName];
-                script.remove();
-                clearTimeout(timer);
-            }
-
-            window[cbName] = onDone;
-            const timer = setTimeout(onFail, 8000);
-
-            script.src = `https://api.mcsrvstat.us/3/${SERVER_HOST}:${SERVER_PORT}?callback=${cbName}`;
-            script.onerror = onFail;
-            document.head.appendChild(script);
+            // mcstatus.io — обычный fetch (CORS включён, подходит для GitHub Pages)
+            fetch(`https://api.mcstatus.io/v2/status/java/${SERVER_HOST}:${SERVER_PORT}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.online === true) {
+                        const players = data.players || {};
+                        STATUS_EL.classList.add('online');
+                        STATUS_EL.innerHTML = `
+                            <div class="status-dot"></div>
+                            <div class="status-text">
+                                <div class="status-label">🟢 СЕРВЕР ОНЛАЙН</div>
+                                <div class="status-meta">Игроков: ${players.online ?? 0} / ${players.max ?? '?'}</div>
+                                <div class="status-meta">Версия: ${(data.version && data.version.name_clean) || '?'}</div>
+                            </div>`;
+                    } else {
+                        STATUS_EL.classList.add('offline');
+                        STATUS_EL.innerHTML = `
+                            <div class="status-dot"></div>
+                            <div class="status-text">
+                                <div class="status-label">🔴 СЕРВЕР ОФЛАЙН</div>
+                                <div class="status-meta">Попробуем снова через 60 секунд.</div>
+                            </div>`;
+                    }
+                })
+                .catch(() => {
+                    // ошибка сети / API
+                    STATUS_EL.classList.add('error');
+                    STATUS_EL.innerHTML = `
+                        <div class="status-dot"></div>
+                        <div class="status-text">
+                            <div class="status-label">⚠️ Ошибка проверки</div>
+                        </div>`;
+                });
         }
 
         // первый запрос сразу, потом каждые 60 секунд
-        fetchServerStatus();
-        setInterval(fetchServerStatus, 60000);
+        updateServerStatus();
+        setInterval(updateServerStatus, 60000);
     </script>
 
 </body>
