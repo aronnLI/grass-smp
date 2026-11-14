@@ -1,5 +1,5 @@
 {
-  "updated": "14.11.2026 23:12",
+  "updated": "14.11.2026 23:13",
   "tops": {
     "kills": [
       {"place":1,"name":"MIllsiXX","value":18,"text":"18"},
@@ -15,7 +15,7 @@
     ],
     "deaths": [
       {"place":1,"name":"Vova62rus","value":54,"text":"54"},
-      {"place":2,"name":"bobragovno","value":25,"text":"25"},
+      {"place":2,"name":"bobragovno","value":26,"text":"26"},
       {"place":3,"name":"ComBane","value":19,"text":"19"},
       {"place":4,"name":"2bearcool_ezz","value":17,"text":"17"},
       {"place":5,"name":"KUpy_AStro","value":14,"text":"14"},
@@ -26,14 +26,14 @@
       {"place":10,"name":"HeavyEnvy","value":9,"text":"9"}
     ],
     "time": [
-      {"place":1,"name":"MadFlaps","value":431,"text":"7h 11m"},
-      {"place":2,"name":"bobragovno","value":411,"text":"6h 51m"},
-      {"place":3,"name":"MIllsiXX","value":368,"text":"6h 8m"},
+      {"place":1,"name":"MadFlaps","value":432,"text":"7h 12m"},
+      {"place":2,"name":"bobragovno","value":412,"text":"6h 52m"},
+      {"place":3,"name":"MIllsiXX","value":369,"text":"6h 9m"},
       {"place":4,"name":"KUpy_AStro","value":264,"text":"4h 24m"},
       {"place":5,"name":"123vf","value":261,"text":"4h 21m"},
-      {"place":6,"name":"aroncikk","value":237,"text":"3h 57m"},
+      {"place":6,"name":"aroncikk","value":238,"text":"3h 58m"},
       {"place":7,"name":"Cool_HuZ_NiK","value":168,"text":"2h 48m"},
-      {"place":8,"name":"zhans3330","value":156,"text":"2h 36m"},
+      {"place":8,"name":"zhans3330","value":157,"text":"2h 37m"},
       {"place":9,"name":"2bearcool_ezz","value":154,"text":"2h 34m"},
       {"place":10,"name":"ComBane","value":150,"text":"2h 30m"}
     ],
