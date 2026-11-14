@@ -1,9 +1,19 @@
 {
-  "updated": "Пока нет данных с сервера",
+  "updated": "14.11.2026 23:07",
   "tops": {
-    "kills": [],
-    "deaths": [],
-    "time": [],
-    "points": []
+    "kills": [
+      {"place":1,"name":"aroncikk","value":1,"text":"1"}
+    ],
+    "deaths": [
+      {"place":1,"name":"aroncikbalance","value":1,"text":"1"}
+    ],
+    "time": [
+      {"place":1,"name":"aroncikk","value":30,"text":"30m"},
+      {"place":2,"name":"aroncikbalance","value":5,"text":"5m"}
+    ],
+    "points": [
+      {"place":1,"name":"aroncikk","value":2300,"text":"2300"},
+      {"place":2,"name":"aroncikbalance","value":0,"text":"0"}
+    ]
   }
 }
