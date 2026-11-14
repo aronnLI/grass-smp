@@ -1,5 +1,5 @@
 {
-  "updated": "14.11.2026 22:57",
+  "updated": "14.11.2026 22:58",
   "tops": {
     "kills": [
       {"place":1,"name":"MIllsiXX","value":18,"text":"18"},
@@ -26,16 +26,16 @@
       {"place":10,"name":"HeavyEnvy","value":9,"text":"9"}
     ],
     "time": [
-      {"place":1,"name":"MadFlaps","value":419,"text":"6h 59m"},
-      {"place":2,"name":"bobragovno","value":399,"text":"6h 39m"},
-      {"place":3,"name":"MIllsiXX","value":356,"text":"5h 56m"},
+      {"place":1,"name":"MadFlaps","value":420,"text":"7h"},
+      {"place":2,"name":"bobragovno","value":400,"text":"6h 40m"},
+      {"place":3,"name":"MIllsiXX","value":357,"text":"5h 57m"},
       {"place":4,"name":"KUpy_AStro","value":264,"text":"4h 24m"},
       {"place":5,"name":"123vf","value":261,"text":"4h 21m"},
-      {"place":6,"name":"aroncikk","value":225,"text":"3h 45m"},
+      {"place":6,"name":"aroncikk","value":226,"text":"3h 46m"},
       {"place":7,"name":"Cool_HuZ_NiK","value":168,"text":"2h 48m"},
       {"place":8,"name":"2bearcool_ezz","value":154,"text":"2h 34m"},
-      {"place":9,"name":"zhans3330","value":144,"text":"2h 24m"},
-      {"place":10,"name":"ComBane","value":142,"text":"2h 22m"}
+      {"place":9,"name":"zhans3330","value":145,"text":"2h 25m"},
+      {"place":10,"name":"ComBane","value":143,"text":"2h 23m"}
     ],
     "points": [
       {"place":1,"name":"O_O","value":162,"text":"162"},
