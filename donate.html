@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Донат — Grass SMP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2FE04E;
+            --teal: #00FFCC;
+            --bg-dark: #0b0f0e;
+            --bg-card: rgba(30, 30, 46, 0.35);
+            --bg-header: rgba(9, 13, 12, 0.6);
+            --text-main: #e8f5ec;
+            --text-muted: #9db4a5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0d1117;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* тёмный полупрозрачный оверлей поверх фоновой картинки */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 17, 23, 0.55);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; }
+
+        /* стеклянный эффект для карточек и шагов */
+        .priv-card,
+        .service-card,
+        .step {
+            background: rgba(30, 30, 46, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+        }
+
+        /* ------- Header ------- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            background: rgba(9, 13, 12, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(47, 224, 78, 0.15);
+        }
+
+        .nav {
+            max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.35rem; color: var(--green); }
+
+        .logo-dot {
+            width: 12px; height: 12px; border-radius: 3px;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            display: inline-block; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(47, 224, 78, 0.5); }
+            50% { box-shadow: 0 0 0 9px rgba(47, 224, 78, 0); }
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+
+        .nav-links a:not(.nav-cta) {
+            font-weight: 600; font-size: 0.95rem; color: var(--text-muted);
+            position: relative; transition: color 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta)::after {
+            content: ''; position: absolute; bottom: -6px; left: 0;
+            width: 0; height: 2px; background: var(--green); transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta):hover { color: var(--green); }
+        .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 10px 22px; border-radius: 8px; font-weight: 700;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #0b0f0e; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0, 255, 204, 0.4); }
+
+        .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 110; }
+        .burger span { width: 26px; height: 3px; border-radius: 3px; background: var(--green); transition: all 0.3s ease; }
+        .nav-links.open { transform: translateY(0); }
+        .active-link { color: var(--green) !important; }
+        .active-link::after { width: 100% !important; }
+
+        /* ------- Кнопка корзины в шапке ------- */
+        .cart-btn {
+            position: relative;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 18px; border-radius: 10px;
+            font-weight: 700; font-size: 0.9rem; color: var(--text-main);
+            background: rgba(47, 224, 78, 0.1);
+            border: 1px solid rgba(47, 224, 78, 0.3);
+            cursor: pointer; font-family: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            background: rgba(47, 224, 78, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(47, 224, 78, 0.25);
+        }
+
+        .cart-count {
+            min-width: 22px; height: 22px; padding: 0 6px;
+            border-radius: 50px; display: inline-flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #0b0f0e; font-size: 0.8rem; font-weight: 800;
+        }
+
+        /* ------- Блок пополнения аметистов ------- */
+        .amethyst {
+            max-width: 900px; margin: 0 auto; padding: 34px 24px;
+            text-align: center;
+            background: rgba(30, 30, 46, 0.65);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 18px;
+        }
+
+        .amethyst h2 {
+            font-size: 1.6rem; font-weight: 800; margin-bottom: 6px;
+        }
+
+        .amethyst .amethyst-icon { font-size: 2rem; display: inline-block; margin-bottom: 8px; }
+
+        .amethyst p { color: var(--text-muted); margin-bottom: 22px; }
+
+        .amethyst-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+        }
+
+        .amethyst-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.25);
+            border-radius: 12px; padding: 18px 14px; cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .amethyst-card:hover {
+            transform: translateY(-4px);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 10px 26px rgba(0, 255, 204, 0.2);
+        }
+
+        .amethyst-card .amt { font-size: 1.3rem; font-weight: 800; color: var(--teal); }
+        .amethyst-card .amt-pts { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* (корзина вынесена на отдельную страницу cart.html) */
+
+        /* ------- Уведомление (toast) ------- */
+        .toast {
+            position: fixed; bottom: 30px; left: 50%;
+            transform: translateX(-50%) translateY(120px);
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #0b0f0e; padding: 14px 26px; border-radius: 12px;
+            font-weight: 700; opacity: 0; transition: all 0.4s ease;
+            z-index: 2000; box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+            white-space: nowrap;
+        }
+
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        /* ------- Page hero ------- */
+        .page-hero {
+            padding: 170px 24px 46px; text-align: center; position: relative;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(47, 224, 78, 0.12), transparent 45%),
+                radial-gradient(circle at 85% 30%, rgba(0, 255, 204, 0.1), transparent 45%),
+                var(--bg-dark);
+        }
+
+        .page-hero .headline { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; }
+        .page-hero .headline .highlight { background: linear-gradient(90deg, var(--green), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .page-hero p { color: var(--text-muted); max-width: 600px; margin: 16px auto 36px; }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 16px 36px; border-radius: 12px; font-size: 1.05rem; font-weight: 700;
+            border: none; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary { background: linear-gradient(135deg, var(--green), var(--teal)); color: #0b0f0e; }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 28px rgba(47, 224, 78, 0.65), 0 0 60px rgba(0, 255, 204, 0.35); }
+
+        /* ------- Общие секции ------- */
+        .block { max-width: 1200px; margin: 0 auto; padding: 30px 24px 80px; }
+        .block-head { text-align: center; margin-bottom: 46px; }
+        .block-head h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; }
+        .block-head p { color: var(--text-muted); max-width: 520px; margin: 12px auto 0; }
+
+        /* ------- Привилегии ------- */
+        .privilege-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+
+        .priv-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(47, 224, 78, 0.35);
+            border-radius: 18px;
+            padding: 26px 22px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .priv-card:hover { transform: translateY(-6px); box-shadow: 0 0 30px rgba(47, 224, 78, 0.2); }
+
+        /* Популярный тариф «Мастер» */
+        .priv-card.featured {
+            border: 2px solid var(--green);
+            box-shadow: 0 0 40px rgba(47, 224, 78, 0.25);
+            transform: scale(1.04);
+            z-index: 2;
+        }
+
+        .priv-card.featured:hover { transform: scale(1.04) translateY(-6px); }
+
+        /* Максимальный тариф «Император» */
+        .priv-card.max { border-color: gold; box-shadow: 0 0 40px rgba(255, 215, 0, 0.18); }
+        .priv-card.max .priv-name { color: gold; }
+
+        .featured-tag {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #0b0f0e; padding: 6px 16px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap; box-shadow: 0 6px 18px rgba(0, 255, 204, 0.4);
+        }
+
+        .max-tag {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, gold, #ffd700);
+            color: #0b0f0e; padding: 6px 16px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap; box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
+        }
+
+        .priv-icon { font-size: 2.6rem; display: inline-block; margin-bottom: 8px; }
+        .priv-name { font-size: 1.25rem; font-weight: 800; color: var(--green); }
+        .priv-card.featured .priv-name { color: var(--green); }
+
+        .priv-price { font-size: 1.7rem; font-weight: 800; color: var(--green); margin: 4px 0 14px; }
+        .priv-card.featured .priv-price { color: var(--teal); }
+        .priv-card.max .priv-price { color: gold; }
+        .priv-price span { font-size: 0.95rem; color: var(--text-muted); font-weight: 400; }
+
+        .priv-subhead {
+            width: 100%; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            text-transform: uppercase; color: var(--text-muted); text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 6px; margin: 8px 0 10px;
+        }
+
+        .priv-features { list-style: none; width: 100%; flex-grow: 1; text-align: left; margin-bottom: 10px; }
+        .priv-features li { padding: 5px 0; color: var(--text-muted); font-size: 0.9rem; display: flex; align-items: flex-start; gap: 8px; }
+        .priv-features .check { color: var(--green); flex-shrink: 0; font-weight: 700; }
+        .priv-card.featured .priv-features .check { color: var(--teal); }
+        .priv-card.max .priv-features .check { color: gold; }
+
+        .home-badge {
+            margin-top: 2px; padding: 7px 14px; border-radius: 50px; font-size: 0.85rem;
+            font-weight: 800; background: rgba(47, 224, 78, 0.1); color: var(--green);
+            border: 1px solid rgba(47, 224, 78, 0.25); align-self: stretch; text-align: center;
+        }
+
+        .home-badge .key { color: var(--teal); margin-right: 6px; }
+
+        .buy-btn {
+            display: block; text-decoration: none;
+            width: 100%; text-align: center; padding: 12px; border-radius: 10px; font-weight: 700;
+            border: 2px solid var(--green); color: var(--green); background: transparent;
+            margin-top: 14px;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .buy-btn:hover { background: var(--green); color: #0b0f0e; transform: translateY(-2px); box-shadow: 0 10px 26px rgba(47, 224, 78, 0.4); }
+        .buy-btn.featured { background: linear-gradient(135deg, var(--green), var(--teal)); border: none; color: #0b0f0e; }
+        .buy-btn.featured:hover { box-shadow: 0 12px 30px rgba(0, 255, 204, 0.5); }
+        .buy-btn.max { border-color: gold; color: gold; }
+        .buy-btn.max:hover { background: gold; color: #0b0f0e; box-shadow: 0 10px 26px rgba(255, 215, 0, 0.4); }
+
+        /* ------- Разовые услуги ------- */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0, 255, 204, 0.3);
+            border-radius: 16px; padding: 28px 24px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 0 26px rgba(0, 255, 204, 0.18); border-color: var(--teal); }
+        .service-icon { font-size: 2.4rem; display: inline-block; margin-bottom: 10px; }
+        .service-name { font-size: 1.3rem; font-weight: 800; color: var(--green); }
+        .service-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+        .service-price { font-size: 1.5rem; font-weight: 800; color: var(--teal); margin: 6px 0 16px; }
+        .service-price span { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+        .service-features { list-style: none; width: 100%; text-align: left; flex-grow: 1; margin-bottom: 18px; }
+        .service-features li { padding: 6px 0; color: var(--text-muted); display: flex; gap: 8px; font-size: 0.95rem; }
+        .service-features .check { color: var(--teal); flex-shrink: 0; font-weight: 700; }
+
+        /* ------- Как это работает ------- */
+        .how { padding-bottom: 90px; }
+        .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+
+        .step {
+            text-align: center; background: var(--bg-card);
+            border: 1px solid rgba(47, 224, 78, 0.12); border-radius: 16px; padding: 34px 24px; position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .step:hover { transform: translateY(-5px); border-color: rgba(47, 224, 78, 0.4); }
+        .step-num {
+            position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--green), var(--teal)); color: #0b0f0e;
+            box-shadow: 0 6px 18px rgba(0, 255, 204, 0.35);
+        }
+
+        .step-icon { font-size: 2.4rem; margin: 10px 0 14px; display: inline-block; }
+        .step h3 { color: var(--green); margin-bottom: 8px; }
+        .step p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ------- Footer ------- */
+        footer { border-top: 1px solid rgba(47, 224, 78, 0.15); padding: 40px 24px; background: #070a09; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { padding: 10px 18px; border-radius: 10px; font-weight: 600; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
+        .footer-social a:hover { color: var(--green); border-color: var(--green); transform: translateY(-2px); }
+        footer p { color: var(--text-muted); font-size: 0.9rem; text-align: center; }
+
+        /* ------- Анимации при прокрутке ------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-left { transform: translateX(-46px); }
+        .reveal-right { transform: translateX(46px); }
+        .reveal-zoom { transform: scale(0.88); }
+
+        .reveal.come {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* плавность hover-эффектов */
+        .priv-card,
+        .service-card,
+        .step,
+        .buy-btn {
+            transition-duration: 0.4s !important;
+        }
+
+        /* ------- Responsive ------- */
+        @media (max-width: 992px) {
+            .privilege-grid, .services-grid, .how-grid { grid-template-columns: repeat(2, 1fr); }
+            .priv-card.featured { transform: none; }
+            .priv-card.featured:hover { transform: translateY(-6px); }
+        }
+
+        @media (max-width: 768px) {
+            .privilege-grid, .services-grid, .how-grid, .amethyst-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px; margin: 0 auto;
+            }
+
+.amethyst-grid { max-width: 360px; }
+
+            .cart-btn .cart-text { display: none; }
+
+            .nav-links {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: rgba(9, 13, 12, 0.98);
+                flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+                transform: translateY(-130%); transition: transform 0.4s ease; padding: 40px 0;
+            }
+
+            .burger { display: flex; }
+            .burger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .burger.active span:nth-child(2) { opacity: 0; }
+            .burger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <span class="logo-dot"></span>
+                GRASS SMP
+            </a>
+
+            <a class="cart-btn" href="cart.html" id="cartBtn">
+                🛒 <span class="cart-text">Корзина</span> <span class="cart-count" id="cartCount">0</span>
+            </a>
+
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#about">О сервере</a></li>
+                <li><a href="rules.html">Правила</a></li>
+                <li><a href="donate.html" class="active-link">Донат</a></li>
+                <li><a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer" class="nav-cta">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="page-hero">
+        <h1 class="headline">Поддержи <span class="highlight">проект</span></h1>
+        <p>
+            Донат помогает оплачивать хостинг, развивать сервер и делать его стабильнее.
+            Поднимись от Новичка до Императора — с каждым статусом открываются новые возможности.
+        </p>
+        <a href="https://www.donationalerts.com/r/aroncik" target="_blank" rel="noopener noreferrer" class="btn btn-primary">💎 Пополнить баланс</a>
+    </div>
+
+    <!-- Пополнение аметистов -->
+    <div class="block" style="padding-top: 0; padding-bottom: 0;">
+        <div class="amethyst reveal">
+            <span class="amethyst-icon">💎</span>
+            <h2>Пополнить Аметисты</h2>
+            <p>Аметисты — внутренняя валюта сервера. Используй их для покупки привилегий и услуг.</p>
+            <div class="amethyst-grid">
+                <div class="amethyst-card reveal" data-amethyst="100" data-price="50">
+                    <div class="amt">100</div>
+                    <div class="amt-pts">Аметистов — 50₽</div>
+                </div>
+                <div class="amethyst-card reveal" data-amethyst="500" data-price="200" style="transition-delay:0.1s;">
+                    <div class="amt">500</div>
+                    <div class="amt-pts">Аметистов — 200₽</div>
+                </div>
+                <div class="amethyst-card reveal" data-amethyst="1000" data-price="350" style="transition-delay:0.2s;">
+                    <div class="amt">1000</div>
+                    <div class="amt-pts">Аметистов — 350₽</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== Привилегии ======== -->
+    <div class="block">
+        <div class="block-head reveal">
+            <h2>🎖 Привилегии</h2>
+            <p>Десять статусов — от скромного Новичка до великого Императора. Чем выше статус, тем больше домов и команд!</p>
+        </div>
+
+        <div class="privilege-grid">
+
+            <!-- 1. Новичок -->
+            <div class="priv-card reveal" style="transition-delay:0s;">
+                <span class="priv-icon">🌱</span>
+                <div class="priv-name">Новичок</div>
+                <div class="priv-price">49 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /hat</li>
+                    <li><span class="check">✓</span> Цветной ник</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 3 × /sethome</div>
+                <button class="buy-btn" data-id="novichok" data-name="Новичок" data-price="49">Купить</button>
+            </div>
+
+            <!-- 2. Житель -->
+            <div class="priv-card reveal" style="transition-delay:0.05s;">
+                <span class="priv-icon">🏠</span>
+                <div class="priv-name">Житель</div>
+                <div class="priv-price">99 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /workbench</li>
+                    <li><span class="check">✓</span> Приоритет входа</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 4 × /sethome</div>
+                <button class="buy-btn" data-id="zhitel" data-name="Житель" data-price="99">Купить</button>
+            </div>
+
+            <!-- 3. Путешественник -->
+            <div class="priv-card reveal" style="transition-delay:0.1s;">
+                <span class="priv-icon">🧭</span>
+                <div class="priv-name">Путешественник</div>
+                <div class="priv-price">199 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick</li>
+                    <li><span class="check">✓</span> /back</li>
+                    <li><span class="check">✓</span> /enderchest</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 5 × /sethome</div>
+                <button class="buy-btn" data-id="puteshestvennik" data-name="Путешественник" data-price="199">Купить</button>
+            </div>
+
+            <!-- 4. Воин -->
+            <div class="priv-card reveal" style="transition-delay:0.15s;">
+                <span class="priv-icon">⚔️</span>
+                <div class="priv-name">Воин</div>
+                <div class="priv-price">299 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /trash</li>
+                    <li><span class="check">✓</span> /near</li>
+                    <li><span class="check">✓</span> /feed (кд 5 мин)</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 6 × /sethome</div>
+                <button class="buy-btn" data-id="voin" data-name="Воин" data-price="299">Купить</button>
+            </div>
+
+            <!-- 5. Ветеран -->
+            <div class="priv-card reveal" style="transition-delay:0.2s;">
+                <span class="priv-icon">🛡️</span>
+                <div class="priv-name">Ветеран</div>
+                <div class="priv-price">399 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /hat — все блоки</li>
+                    <li><span class="check">✓</span> /feed (кд 3 мин)</li>
+                    <li><span class="check">✓</span> /repair (кд 10 мин)</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 8 × /sethome</div>
+                <button class="buy-btn" data-id="veteran" data-name="Ветеран" data-price="399">Купить</button>
+            </div>
+
+            <!-- 6. Мастер (популярный) -->
+            <div class="priv-card featured reveal" style="transition-delay:0.25s;">
+                <span class="featured-tag">⭐ Популярно</span>
+                <span class="priv-icon">👑</span>
+                <div class="priv-name">Мастер</div>
+                <div class="priv-price">499 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /skull</li>
+                    <li><span class="check">✓</span> /heal (кд 5 мин)</li>
+                    <li><span class="check">✓</span> /feed (кд 2 мин)</li>
+                    <li><span class="check">✓</span> /repair (кд 5 мин)</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 10 × /sethome</div>
+                <button class="buy-btn featured" data-id="master" data-name="Мастер" data-price="499">Купить</button>
+            </div>
+
+            <!-- 7. Герой -->
+            <div class="priv-card reveal" style="transition-delay:0.3s;">
+                <span class="priv-icon">🦸</span>
+                <div class="priv-name">Герой</div>
+                <div class="priv-price">599 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /particle</li>
+                    <li><span class="check">✓</span> /heal (кд 2 мин)</li>
+                    <li><span class="check">✓</span> /feed без кд</li>
+                    <li><span class="check">✓</span> /repair (кд 3 мин)</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 12 × /sethome</div>
+                <button class="buy-btn" data-id="geroi" data-name="Герой" data-price="599">Купить</button>
+            </div>
+
+            <!-- 8. Легенда -->
+            <div class="priv-card reveal" style="transition-delay:0.35s;">
+                <span class="priv-icon">📜</span>
+                <div class="priv-name">Легенда</div>
+                <div class="priv-price">749 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /beacon</li>
+                    <li><span class="check">✓</span> /heal (кд 1 мин)</li>
+                    <li><span class="check">✓</span> /feed без кд</li>
+                    <li><span class="check">✓</span> /repair (кд 1 мин)</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 15 × /sethome</div>
+                <button class="buy-btn" data-id="legenda" data-name="Легенда" data-price="749">Купить</button>
+            </div>
+
+            <!-- 9. Титан -->
+            <div class="priv-card reveal" style="transition-delay:0.4s;">
+                <span class="priv-icon">🌋</span>
+                <div class="priv-name">Титан</div>
+                <div class="priv-price">899 <span>₽</span></div>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /nick, /back</li>
+                    <li><span class="check">✓</span> /particle, /skull</li>
+                    <li><span class="check">✓</span> /hat — все блоки</li>
+                    <li><span class="check">✓</span> /heal без кд</li>
+                    <li><span class="check">✓</span> /feed без кд</li>
+                    <li><span class="check">✓</span> /repair без кд</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 20 × /sethome</div>
+                <button class="buy-btn" data-id="titan" data-name="Титан" data-price="899">Купить</button>
+            </div>
+
+            <!-- 10. Император (максимальный) -->
+            <div class="priv-card max reveal" style="transition-delay:0.45s;">
+                <span class="max-tag">👑 Максимум</span>
+                <span class="priv-icon">🏆</span>
+                <div class="priv-name">Император</div>
+                <div class="priv-price">999 <span>₽</span></div>
+                <div class="priv-subhead">Уникальное</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> Всё из Титана</li>
+                    <li><span class="check">✓</span> Discord-роль</li>
+                    <li><span class="check">✓</span> Статус в табе</li>
+                </ul>
+                <div class="priv-subhead">Команды</div>
+                <ul class="priv-features">
+                    <li><span class="check">✓</span> /heal без кд</li>
+                    <li><span class="check">✓</span> /feed без кд</li>
+                    <li><span class="check">✓</span> /repair без кд</li>
+                </ul>
+                <div class="priv-subhead">Дома</div>
+                <div class="home-badge"><span class="key">🏠</span> 25 × /sethome</div>
+                <button class="buy-btn max" data-id="imperator" data-name="Император" data-price="999">Купить</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ======== Разовые услуги ======== -->
+    <div class="block">
+        <div class="block-head reveal">
+            <h2>🛠 Разовые услуги</h2>
+            <p>Попал в переплёт? Мгновенно решим вопрос.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Второй шанс -->
+            <div class="service-card reveal">
+                <span class="service-icon">🕊️</span>
+                <div class="service-name">Второй шанс</div>
+                <div class="service-sub">Разбан</div>
+                <div class="service-price">от 199 <span>₽</span></div>
+                <ul class="service-features">
+                    <li><span class="check">✓</span> Снятие бана с аккаунта</li>
+                    <li><span class="check">✓</span> Срок действия: навсегда</li>
+                </ul>
+                <button class="buy-btn" data-id="razban" data-name="Разбан" data-price="199">Купить</button>
+            </div>
+
+            <!-- Свобода слова -->
+            <div class="service-card reveal" style="transition-delay:0.1s;">
+                <span class="service-icon">🗣️</span>
+                <div class="service-name">Свобода слова</div>
+                <div class="service-sub">Размут</div>
+                <div class="service-price">от 99 <span>₽</span></div>
+                <ul class="service-features">
+                    <li><span class="check">✓</span> Снятие мута с аккаунта</li>
+                    <li><span class="check">✓</span> Действует сразу</li>
+                </ul>
+                <button class="buy-btn" data-id="razmut" data-name="Размут" data-price="99">Купить</button>
+            </div>
+
+            <!-- Побег -->
+            <div class="service-card reveal" style="transition-delay:0.2s;">
+                <span class="service-icon">⛓️</span>
+                <div class="service-name">Побег</div>
+                <div class="service-sub">Выход из тюрьмы</div>
+                <div class="service-price">от 149 <span>₽</span></div>
+                <ul class="service-features">
+                    <li><span class="check">✓</span> Досрочное освобождение</li>
+                    <li><span class="check">✓</span> Действует сразу</li>
+                </ul>
+                <button class="buy-btn" data-id="pobeg" data-name="Побег (из тюрьмы)" data-price="149">Купить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== Как это работает ======== -->
+    <div class="block how">
+        <div class="block-head reveal"><h2>Как это работает</h2></div>
+
+        <div class="how-grid">
+            <div class="step reveal reveal-left">
+                <span class="step-num">1</span>
+                <span class="step-icon">🛒</span>
+                <h3>Выбери статус</h3>
+                <p>Ознакомься со статусами и услугами и выбери подходящий для себя вариант.</p>
+            </div>
+            <div class="step reveal">
+                <span class="step-num">2</span>
+                <span class="step-icon">💳</span>
+                <h3>Оплати</h3>
+                <p>Оплати удобным способом через DonationAlerts. Средства начисляются мгновенно.</p>
+            </div>
+            <div class="step reveal reveal-right">
+                <span class="step-num">3</span>
+                <span class="step-icon">🎁</span>
+                <h3>Получи на сервере</h3>
+                <p>Статус или услуга активируется автоматически сразу после подтверждения оплаты.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast уведомление -->
+    <div class="toast" id="toast">Товар добавлен в корзину!</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="logo"><span class="logo-dot"></span> GRASS SMP</div>
+            <div class="footer-social">
+                <a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://t.me/aron1478" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+            <p>© 2026 Grass SMP. Все права защищены. Не является официальным продуктом Mojang.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ========== КОРЗИНА ==========
+        // Общий ключ с cart.html — товары хранятся в одном месте.
+        const CART_KEY = 'grass_cart';
+
+        // ---- Универсальная память: localStorage, если недоступен — в памяти ----
+        // Решает проблему file:// и приватного режима, где localStorage кидает ошибку
+        // и из-за этого корзина "не считала деньги".
+        let memoryCart = null;
+
+        function getStorage() {
+            try {
+                localStorage.setItem('__t', '1');
+                localStorage.removeItem('__t');
+                return localStorage;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function loadCart() {
+            const store = getStorage();
+            if (store) {
+                try {
+                    const raw = store.getItem(CART_KEY);
+                    const parsed = raw ? JSON.parse(raw) : [];
+                    return Array.isArray(parsed) ? parsed : [];
+                } catch (e) {
+                    return [];
+                }
+            }
+            return memoryCart ? memoryCart : [];
+        }
+
+        function saveCart(cart) {
+            const store = getStorage();
+            if (store) {
+                try { store.setItem(CART_KEY, JSON.stringify(cart)); return; }
+                catch (e) { /* fall down to memory */ }
+            }
+            memoryCart = cart.slice();
+        }
+
+        // ---- Элементы ----
+        const cartCountEl = document.getElementById('cartCount');
+        const toast = document.getElementById('toast');
+
+        let toastTimeout;
+        function showToast(message = 'Товар добавлен в корзину!') {
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        // ---- addToCart: добавить товар и обновить счётчик ----
+        function addToCart(itemId, name, price) {
+            let cart = loadCart();
+            const existing = cart.find(item => item.id === itemId);
+            if (existing) {
+                existing.qty = Number(existing.qty) + 1;
+            } else {
+                cart.push({ id: itemId, name, price: Number(price), qty: 1 });
+            }
+            saveCart(cart);
+            updateCount(cart);
+            showToast();
+        }
+
+        // ---- Счётчик в шапке (сумма всех количеств) ----
+        function updateCount(cart) {
+            const totalQty = cart.reduce((sum, i) => sum + Number(i.qty), 0);
+            if (cartCountEl) cartCountEl.textContent = totalQty;
+        }
+
+        // ---- Добавление товаров из карточек и валюты ----
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                addToCart(btn.dataset.id, btn.dataset.name, Number(btn.dataset.price));
+            });
+        });
+
+        document.querySelectorAll('.amethyst-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const amt = card.dataset.amethyst;
+                const price = card.dataset.price;
+                addToCart('amethyst_' + amt, amt + ' Аметистов', Number(price));
+            });
+        });
+
+        // ========== Мобильное меню ==========
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burger.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // ========== Появление блоков при прокрутке ==========
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('come');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ---- Инициализация счётчика ----
+        updateCount(loadCart());
+    </script>
+
+</body>
+</html>
