@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grass SMP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2FE04E;
+            --teal: #00FFCC;
+            --bg-dark: #0b0f0e;
+            --text-muted: #9db4a5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body { height: 100%; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: #e8f5ec;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ------- Верхняя панель переключения ------- */
+        .tabbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(9, 13, 12, 0.97);
+            border-bottom: 1px solid rgba(47, 224, 78, 0.2);
+            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            overflow-x: auto;
+        }
+
+        .tab-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: var(--green);
+            margin-right: 16px;
+            white-space: nowrap;
+        }
+
+        .tab-logo .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(47, 224, 78, 0.5); }
+            50% { box-shadow: 0 0 0 9px rgba(47, 224, 78, 0); }
+        }
+
+        .tab-btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            background: transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--green);
+            background: rgba(47, 224, 78, 0.08);
+        }
+
+        .tab-btn.active {
+            color: #0b0f0e;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            box-shadow: 0 6px 20px rgba(47, 224, 78, 0.4);
+        }
+
+        .tab-btn.active:hover { color: #0b0f0e; }
+
+        /* ------- Контейнер с iframe ------- */
+        .view {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        iframe.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="tabbar">
+        <span class="tab-logo"><span class="dot"></span> GRASS SMP</span>
+        <button class="tab-btn active" data-page="index.html" id="tabMain">Главная</button>
+        <button class="tab-btn" data-page="rules.html" id="tabRules">Правила</button>
+        <button class="tab-btn" data-page="donate.html" id="tabDonate">Донат</button>
+        <button class="tab-btn" data-page="cart.html" id="tabCart">Корзина</button>
+    </nav>
+
+    <div class="view">
+        <iframe id="mainFrame" src="index.html" class="active" title="Главная"></iframe>
+        <iframe id="rulesFrame" src="rules.html" title="Правила"></iframe>
+        <iframe id="donateFrame" src="donate.html" title="Донат"></iframe>
+        <iframe id="cartFrame" src="cart.html" title="Корзина"></iframe>
+    </div>
+
+    <script>
+        const frames = {
+            main: document.getElementById('mainFrame'),
+            rules: document.getElementById('rulesFrame'),
+            donate: document.getElementById('donateFrame'),
+            cart: document.getElementById('cartFrame')
+        };
+
+        const buttons = {
+            main: document.getElementById('tabMain'),
+            rules: document.getElementById('tabRules'),
+            donate: document.getElementById('tabDonate'),
+            cart: document.getElementById('tabCart')
+        };
+
+        function switchTab(key) {
+            Object.values(buttons).forEach(b => b.classList.remove('active'));
+            Object.values(frames).forEach(f => f.classList.remove('active'));
+            buttons[key].classList.add('active');
+            frames[key].classList.add('active');
+        }
+
+        // ПРИ ОБНОВЛЕНИИ САЙТА: если добавляются новые страницы (файлы .html),
+        // добавь сюда кнопку в .tabbar и iframe в .view по этому же шаблону,
+        // и зарегистрируй их в объектах frames / buttons выше.
+        buttons.main.addEventListener('click', () => switchTab('main'));
+        buttons.rules.addEventListener('click', () => switchTab('rules'));
+        buttons.donate.addEventListener('click', () => switchTab('donate'));
+        buttons.cart.addEventListener('click', () => switchTab('cart'));
+    </script>
+
+</body>
+</html>

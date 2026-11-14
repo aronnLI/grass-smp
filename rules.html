@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила — Grass SMP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2FE04E;
+            --teal: #00FFCC;
+            --red: #ff5c5c;
+            --orange: #ffa94d;
+            --blue: #58a6ff;
+            --gold: #ffd700;
+            --bg-dark: #0b0f0e;
+            --bg-card: rgba(30, 30, 46, 0.35);
+            --bg-header: rgba(9, 13, 12, 0.6);
+            --text-main: #e8f5ec;
+            --text-muted: #9db4a5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0d1117;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* тёмный полупрозрачный оверлей */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(13, 17, 23, 0.6);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; }
+
+        /* ------- Header ------- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            background: rgba(9, 13, 12, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(47, 224, 78, 0.15);
+        }
+
+        .nav {
+            max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.35rem; color: var(--green); }
+
+        .logo-dot {
+            width: 12px; height: 12px; border-radius: 3px;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            display: inline-block; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(47, 224, 78, 0.5); }
+            50% { box-shadow: 0 0 0 9px rgba(47, 224, 78, 0); }
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+
+        .nav-links a:not(.nav-cta) {
+            font-weight: 600; font-size: 0.95rem; color: var(--text-muted);
+            position: relative; transition: color 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta)::after {
+            content: ''; position: absolute; bottom: -6px; left: 0;
+            width: 0; height: 2px; background: var(--green); transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta):hover { color: var(--green); }
+        .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 10px 22px; border-radius: 8px; font-weight: 700;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #0b0f0e; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0, 255, 204, 0.4); }
+
+        .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 110; }
+        .burger span { width: 26px; height: 3px; border-radius: 3px; background: var(--green); transition: all 0.3s ease; }
+        .nav-links.open { transform: translateY(0); }
+        .active-link { color: var(--green) !important; }
+        .active-link::after { width: 100% !important; }
+
+        /* ------- Hero ------- */
+        .page-hero {
+            padding: 150px 24px 30px; text-align: center; position: relative;
+        }
+
+        .page-hero .badge {
+            display: inline-block; padding: 8px 18px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--teal); border: 1px solid rgba(0, 255, 204, 0.4);
+            background: rgba(0, 255, 204, 0.06); margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800;
+        }
+
+        .page-hero h1 .hl {
+            background: linear-gradient(90deg, var(--green), var(--teal));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+
+        .page-hero p { color: var(--text-muted); max-width: 700px; margin: 16px auto 0; }
+
+        /* ------- Липкая навигация ------- */
+        .rules-nav {
+            max-width: 900px; margin: 30px auto 0; padding: 8px;
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+            position: sticky; top: 71px; z-index: 50;
+            background: rgba(11, 15, 14, 0.85);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(47, 224, 78, 0.15);
+            border-radius: 14px;
+        }
+
+        .rules-nav a {
+            padding: 9px 16px; border-radius: 9px; font-weight: 700; font-size: 0.88rem;
+            color: var(--text-muted); display: flex; align-items: center; gap: 8px;
+            transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rules-nav a .dot-nav {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+        }
+
+        .rules-nav a:hover { color: var(--text-main); background: rgba(47, 224, 78, 0.1); }
+        .rules-nav a.on { background: rgba(47, 224, 78, 0.15); color: var(--green); }
+
+        .dot-mute { background: var(--orange); }
+        .dot-ban { background: var(--red); }
+        .dot-kick { background: var(--blue); }
+        .dot-allow { background: var(--green); }
+        .dot-mods { background: var(--gold); }
+
+        /* ------- Контент ------- */
+        .content { max-width: 900px; margin: 0 auto; padding: 30px 24px 90px; }
+
+        .intro {
+            background: rgba(30, 30, 46, 0.45);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(47, 224, 78, 0.25);
+            border-left: 4px solid var(--green);
+            border-radius: 14px; padding: 20px 24px; margin-bottom: 28px;
+            color: var(--text-muted); display: flex; gap: 16px; align-items: flex-start;
+        }
+
+        .intro .intro-icon {
+            font-size: 1.6rem; flex-shrink: 0; width: 46px; height: 46px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(47, 224, 78, 0.1); border-radius: 12px;
+        }
+
+        .intro strong { color: var(--green); }
+        .intro em { color: var(--teal); font-style: normal; font-weight: 700; }
+
+        /* ------- Аккордеон ------- */
+        .acc {
+            background: rgba(30, 30, 46, 0.4);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px; margin-bottom: 18px;
+            overflow: hidden;
+            border-left: 5px solid var(--green);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .acc.ban { border-left-color: var(--red); }
+        .acc.kick { border-left-color: var(--blue); }
+        .acc.allowed { border-left-color: var(--green); }
+        .acc.mods { border-left-color: var(--gold); }
+
+        .acc:hover { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35); }
+
+        .acc input { position: absolute; opacity: 0; pointer-events: none; }
+
+        .acc-label {
+            display: flex; align-items: center; gap: 14px;
+            padding: 18px 22px; cursor: pointer; user-select: none;
+            font-size: 1.05rem; font-weight: 800; color: var(--text-main);
+            transition: background 0.3s ease; position: relative;
+        }
+
+        .acc-label .acc-type {
+            flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            background: rgba(47, 224, 78, 0.1);
+        }
+
+        .acc.ban .acc-type { background: rgba(255, 92, 92, 0.14); }
+        .acc.kick .acc-type { background: rgba(88, 166, 255, 0.14); }
+        .acc.mods .acc-type { background: rgba(255, 215, 0, 0.11); }
+
+        .acc-label:hover { background: rgba(47, 224, 78, 0.05); }
+
+        .acc-arrow {
+            margin-left: auto; flex-shrink: 0; width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(255, 255, 255, 0.06);
+            color: var(--green); font-size: 0.8rem;
+            transition: transform 0.35s ease, background 0.3s ease;
+        }
+
+        .acc input:checked + .acc-label .acc-arrow {
+            transform: rotate(180deg);
+            background: rgba(47, 224, 78, 0.15);
+        }
+
+        .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+        .acc input:checked + .acc-label + .acc-body { max-height: 4000px; }
+        .acc-inner { padding: 6px 22px 22px; }
+
+        /* ------- Таблица ------- */
+        .rule-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            font-size: 0.95rem;
+        }
+
+        .rule-table th,
+        .rule-table td {
+            padding: 13px 14px; text-align: left; vertical-align: top;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .rule-table thead th {
+            background: rgba(47, 224, 78, 0.08);
+            color: var(--green); font-weight: 800; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(47, 224, 78, 0.2);
+            white-space: nowrap;
+        }
+
+        .rule-table thead th:first-child { border-radius: 8px 0 0 0; }
+        .rule-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+        .rule-table tbody tr { transition: background 0.2s ease; }
+        .rule-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+
+        .rule-table .num {
+            font-weight: 800; color: var(--teal); white-space: nowrap;
+            background: rgba(0, 255, 204, 0.06); border-radius: 6px; padding: 2px 8px;
+            text-align: center;
+        }
+
+        .rule-table .desc { color: var(--text-main); }
+
+        /* бейджи наказаний */
+        .pen-badge {
+            display: inline-block; padding: 4px 12px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 800; white-space: nowrap;
+        }
+
+        .pen-mute { background: rgba(255, 169, 77, 0.15); color: var(--orange); border: 1px solid rgba(255, 169, 77, 0.3); }
+        .pen-ban { background: rgba(255, 92, 92, 0.15); color: #ff8a8a; border: 1px solid rgba(255, 92, 92, 0.3); }
+        .pen-kick { background: rgba(88, 166, 255, 0.15); color: var(--blue); border: 1px solid rgba(88, 166, 255, 0.3); }
+        .pen-dark { background: rgba(255, 92, 92, 0.22); color: #ffb3b3; border: 1px solid rgba(255, 92, 92, 0.45); }
+        .pen-blue { background: rgba(88, 166, 255, 0.18); color: #9cc5ff; border: 1px solid rgba(88, 166, 255, 0.4); }
+        .pen-gold { background: rgba(255, 215, 0, 0.14); color: var(--gold); border: 1px solid rgba(255, 215, 0, 0.35); }
+
+        /* ------- Заметка ------- */
+        .muted-note {
+            margin-top: 16px; padding: 14px 18px; border-radius: 12px;
+            background: rgba(47, 224, 78, 0.07);
+            border: 1px dashed rgba(47, 224, 78, 0.35);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        .muted-note strong { color: var(--green); }
+
+        /* ------- Категории модов ------- */
+        .warning-box {
+            background: rgba(255, 92, 92, 0.1);
+            border: 1px solid rgba(255, 92, 92, 0.35);
+            border-left: 4px solid var(--red);
+            border-radius: 12px; padding: 16px 20px; margin-bottom: 18px;
+            color: #ffd0d0; font-weight: 600;
+        }
+
+        .warning-box strong { color: var(--red); }
+
+        .categories {
+            list-style: none; display: grid; gap: 12px; margin-top: 8px;
+        }
+
+        .categories > li {
+            background: rgba(255, 92, 92, 0.05);
+            border: 1px solid rgba(255, 92, 92, 0.18);
+            border-radius: 12px; padding: 14px 18px;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .categories > li:hover { border-color: rgba(255, 92, 92, 0.4); background: rgba(255, 92, 92, 0.08); }
+
+        .categories .cat-title {
+            font-weight: 800; color: #ff8a8a; display: block; margin-bottom: 6px;
+        }
+
+        .categories ul { list-style: none; color: var(--text-muted); font-size: 0.92rem; }
+        .categories ul li { padding: 3px 0 3px 16px; position: relative; }
+        .categories ul li::before { content: '▸'; position: absolute; left: 0; color: var(--red); font-weight: 800; }
+
+        /* ------- Сводка наказаний ------- */
+        .summary {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px;
+        }
+
+        .sum-card {
+            background: rgba(30, 30, 46, 0.4);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;
+            padding: 18px 20px; text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .sum-card:hover { transform: translateY(-4px); }
+        .sum-card .sum-icon { font-size: 1.8rem; }
+        .sum-card .sum-label { font-weight: 700; color: var(--text-main); margin-top: 6px; }
+        .sum-card .sum-desc { color: var(--text-muted); font-size: 0.8rem; }
+        .sum-mute { border-top: 3px solid var(--orange); }
+        .sum-ban { border-top: 3px solid var(--red); }
+        .sum-kick { border-top: 3px solid var(--blue); }
+
+        /* ------- Footer ------- */
+        footer { border-top: 1px solid rgba(47, 224, 78, 0.15); padding: 40px 24px; background: rgba(7, 10, 9, 0.9); backdrop-filter: blur(8px); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { padding: 10px 18px; border-radius: 10px; font-weight: 600; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1); transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
+        .footer-social a:hover { color: var(--green); border-color: var(--green); transform: translateY(-2px); }
+        footer p { color: var(--text-muted); font-size: 0.9rem; text-align: center; }
+
+        /* ------- Анимации при прокрутке ------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-left { transform: translateX(-46px); }
+        .reveal-right { transform: translateX(46px); }
+        .reveal-zoom { transform: scale(0.92); }
+
+        .reveal.come {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* плавность аккордеона и hover */
+        .acc, .rules-nav a, .step, .sum-card {
+            transition-duration: 0.4s !important;
+        }
+
+        .rules-nav a {
+            transform-origin: center;
+        }
+
+        /* ------- Responsive ------- */
+        @media (max-width: 768px) {
+            .summary { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
+
+            .nav-links {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: rgba(9, 13, 12, 0.98);
+                flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+                transform: translateY(-130%); transition: transform 0.4s ease; padding: 40px 0;
+            }
+
+            .burger { display: flex; }
+            .burger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .burger.active span:nth-child(2) { opacity: 0; }
+            .burger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            .rule-table { font-size: 0.85rem; }
+            .rule-table th, .rule-table td { padding: 10px 8px; }
+            .rule-table thead th { white-space: normal; }
+
+            .acc-label { font-size: 0.98rem; padding: 15px 16px; }
+            .acc-inner { padding: 4px 16px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <span class="logo-dot"></span>
+                GRASS SMP
+            </a>
+
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#about">О сервере</a></li>
+                <li><a href="rules.html" class="active-link">Правила</a></li>
+                <li><a href="donate.html">Донат</a></li>
+                <li><a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer" class="nav-cta">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="page-hero">
+        <span class="badge">Регламент</span>
+        <h1>📜 Правила <span class="hl">сервера</span></h1>
+        <p>Обязательны к изучению и соблюдению. Нажми на раздел, чтобы раскрыть пункты и наказания.</p>
+    </div>
+
+    <!-- Липкая навигация -->
+    <nav class="rules-nav">
+        <a href="#mutes" class="on" data-target="mutes"><span class="dot-nav dot-mute"></span>Муты</a>
+        <a href="#bans" data-target="bans"><span class="dot-nav dot-ban"></span>Баны</a>
+        <a href="#kicks" data-target="kicks"><span class="dot-nav dot-kick"></span>Кики</a>
+        <a href="#allowed" data-target="allowed"><span class="dot-nav dot-allow"></span>Что разрешено</a>
+        <a href="#mods" data-target="mods"><span class="dot-nav dot-mods"></span>Запрещённые моды</a>
+    </nav>
+
+    <main class="content">
+
+        <!-- Краткая сводка -->
+        <div class="summary">
+            <div class="sum-card sum-mute reveal">
+                <div class="sum-icon">🔇</div>
+                <div class="sum-label">Муты</div>
+                <div class="sum-desc">Чат и поведение</div>
+            </div>
+            <div class="sum-card sum-ban reveal" style="transition-delay:0.1s;">
+                <div class="sum-icon">🔨</div>
+                <div class="sum-label">Баны</div>
+                <div class="sum-desc">Грубые нарушения</div>
+            </div>
+            <div class="sum-card sum-kick reveal" style="transition-delay:0.2s;">
+                <div class="sum-icon">👢</div>
+                <div class="sum-label">Кики</div>
+                <div class="sum-desc">Мелкие нарушения</div>
+            </div>
+        </div>
+
+        <div class="intro reveal">
+            <span class="intro-icon">🛡️</span>
+            <div>
+                Для сотрудников (от Helper до Admin): данный регламент <strong>обязателен</strong> к изучению и строгому соблюдению. Наказания выдаются строго по пунктам. При выдаче наказания модератор обязан указывать пункт правил (например: <em>«Бан 2.3 — Читы»</em>).
+            </div>
+        </div>
+
+        <!-- ============ Раздел 1: Муты ============ -->
+        <div class="acc reveal" id="mutes">
+            <input type="checkbox" id="mutes-toggle">
+            <label class="acc-label" for="mutes-toggle">
+                <span class="acc-type">🔇</span>
+                Раздел 1: Муты
+                <span class="acc-arrow">▼</span>
+            </label>
+            <div class="acc-body">
+                <div class="acc-inner">
+                    <p style="color:var(--text-muted);margin-bottom:14px;">Выдаются за нарушения в текстовом или голосовом чате.</p>
+                    <table class="rule-table">
+                        <thead><tr><th>Пункт</th><th>Нарушение</th><th>Наказание</th></tr></thead>
+                        <tbody>
+                            <tr><td class="num">1.1</td><td class="desc">Спам в чат (свч), флуд, капс.</td><td><span class="pen-badge pen-mute">Мут 15 минут</span></td></tr>
+                            <tr><td class="num">1.2</td><td class="desc">Оскорбление в сторону игрока (ОИ), токсичное поведение.</td><td><span class="pen-badge pen-mute">Мут 10 минут</span></td></tr>
+                            <tr><td class="num">1.3</td><td class="desc">Оскорбление администрации сервера или проекта.</td><td><span class="pen-badge pen-mute">Мут 30 минут</span></td></tr>
+                            <tr><td class="num">1.4</td><td class="desc">Реклама сторонних проектов/серверов.</td><td><span class="pen-badge pen-dark">Мут 1 день (24 часа)</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ Раздел 2: Баны ============ -->
+        <div class="acc ban reveal" id="bans">
+            <input type="checkbox" id="bans-toggle">
+            <label class="acc-label" for="bans-toggle">
+                <span class="acc-type">🔨</span>
+                Раздел 2: Баны
+                <span class="acc-arrow">▼</span>
+            </label>
+            <div class="acc-body">
+                <div class="acc-inner">
+                    <p style="color:#ffb3b3;margin-bottom:14px;">Выдаются за грубые нарушения игрового процесса.</p>
+                    <table class="rule-table">
+                        <thead><tr><th>Пункт</th><th>Нарушение</th><th>Наказание</th></tr></thead>
+                        <tbody>
+                            <tr><td class="num">2.1</td><td class="desc">Повторная реклама после истечения срока мута.</td><td><span class="pen-badge pen-ban">Бан 3 дня</span></td></tr>
+                            <tr><td class="num">2.2</td><td class="desc">Использование X-Ray (иксрей) или любых модов на подсветку руд.</td><td><span class="pen-badge pen-ban">Бан 2 дня (ресурсы изымаются)</span></td></tr>
+                            <tr><td class="num">2.3</td><td class="desc">Использование любых читов (KillAura, Fly, Reach и т.д.).</td><td><span class="pen-badge pen-ban">Бан 15 дней</span></td></tr>
+                            <tr><td class="num">2.4</td><td class="desc">Оскорбление проекта в грубой форме (призывы к закрытию, клевета).</td><td><span class="pen-badge pen-ban">Бан 1 день</span></td></tr>
+                            <tr><td class="num">2.5</td><td class="desc">Взлом сервера, DDoS-атаки, краш-эксплойты, попытка получения прав администратора.</td><td><span class="pen-badge pen-dark">Бан по IP навсегда</span></td></tr>
+                            <tr><td class="num">2.6</td><td class="desc">Обход бана с другого аккаунта (твинка).</td><td><span class="pen-badge pen-dark">Бан по IP на 15 дней</span></td></tr>
+                            <tr><td class="num">2.7</td><td class="desc">Багоюз (использование дюпов, багов ферм, выход из границ мира и т.д.).</td><td><span class="pen-badge pen-ban">Бан 5 дней (лут изымается)</span></td></tr>
+                            <tr><td class="num">2.8</td><td class="desc">Гриферство спавна или возле спавна.</td><td><span class="pen-badge pen-blue">Тюрьма на день</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ Раздел 3: Кики ============ -->
+        <div class="acc kick reveal" id="kicks">
+            <input type="checkbox" id="kicks-toggle">
+            <label class="acc-label" for="kicks-toggle">
+                <span class="acc-type">👢</span>
+                Раздел 3: Кики
+                <span class="acc-arrow">▼</span>
+            </label>
+            <div class="acc-body">
+                <div class="acc-inner">
+                    <p style="color:var(--text-muted);margin-bottom:14px;">Выдаются для предотвращения мелких нарушений или успокоения игрока.</p>
+                    <table class="rule-table">
+                        <thead><tr><th>Пункт</th><th>Нарушение</th><th>Наказание</th></tr></thead>
+                        <tbody>
+                            <tr><td class="num">3.1</td><td class="desc">Спам (флуд одинаковыми сообщениями, засорение чата).</td><td><span class="pen-badge pen-kick">Кик с сервера</span></td></tr>
+                            <tr><td class="num">3.2</td><td class="desc">Попрошайничество (выпрашивание ресурсов, денег, аметистов, креатива у админов).</td><td><span class="pen-badge pen-kick">Кик с сервера</span></td></tr>
+                            <tr><td class="num">3.3</td><td class="desc">Помеха работе администрации (отвлечение во время проверки, помеха в Spectate).</td><td><span class="pen-badge pen-kick">Кик с сервера</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ Раздел 4: Что разрешено ============ -->
+        <div class="acc allowed reveal" id="allowed">
+            <input type="checkbox" id="allowed-toggle">
+            <label class="acc-label" for="allowed-toggle">
+                <span class="acc-type">✅</span>
+                Раздел 4: Что разрешено (Важно!)
+                <span class="acc-arrow">▼</span>
+            </label>
+            <div class="acc-body">
+                <div class="acc-inner">
+                    <p style="color:#d0ffdc;margin-bottom:14px;">Многие вещи, которые запрещены на других серверах, здесь разрешены, так как это SMP.</p>
+                    <table class="rule-table">
+                        <thead><tr><th>Пункт</th><th>Что разрешено</th><th>Примечание</th></tr></thead>
+                        <tbody>
+                            <tr><td class="num">4.1</td><td class="desc">Скам (Обман) — разрешено обманывать игроков при сделках.</td><td><span class="pen-badge pen-mute">Используйте /trade</span></td></tr>
+                            <tr><td class="num">4.2</td><td class="desc">Гриферство — разрешено ломать/взрывать базы других кланов, воровать ресурсы из незаприваченных сундуков.</td><td><span class="pen-badge pen-kick">Разрешено</span></td></tr>
+                            <tr><td class="num">4.3</td><td class="desc">Убийства — разрешено убивать других игроков.</td><td><span class="pen-badge pen-gold">Кроме спавна</span></td></tr>
+                            <tr><td class="num">4.4</td><td class="desc">Клановые войны — разрешены любые конфликты между кланами (рейды, таргетирование).</td><td><span class="pen-badge pen-kick">Разрешено</span></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="muted-note">
+                        <strong>⚠️ Важно для сотрудников (Helper — Admin):</strong><br>
+                        Незнание правил не освобождает от ответственности. Если нарушение не описано в списке, модератор вправе выдать наказание на своё усмотрение, но обязан доложить об этом старшей администрации. Спорные ситуации решает Главный Технический Модератор или Администратор. Постарайтесь запомнить и не нарушать!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ Раздел 5: Запрещённые моды ============ -->
+        <div class="acc mods reveal" id="mods">
+            <input type="checkbox" id="mods-toggle">
+            <label class="acc-label" for="mods-toggle">
+                <span class="acc-type">🚫</span>
+                Список запрещённых модов и читов
+                <span class="acc-arrow">▼</span>
+            </label>
+            <div class="acc-body">
+                <div class="acc-inner">
+                    <div class="warning-box">
+                        Использование любого из этих модов карается <strong>баном на 15 дней (п. 2.3)</strong>. Повторное использование или обход бана — <strong>IP-бан (п. 2.6)</strong>.
+                    </div>
+
+                    <ul class="categories">
+                        <li>
+                            <span class="cat-title">⚔️ 1. Читы на бой (PvP)</span>
+                            <ul><li>KillAura, Aimbot, Reach, Hitbox, Criticals, AutoClicker, TriggerBot, Velocity (отсутствие отбрасывания)</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">🏃‍♂️ 2. Читы на движение</span>
+                            <ul><li>Fly, Speed, Spider, NoFall, Step, Jesus (ходьба по воде)</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">👁️ 3. Читы на зрение</span>
+                            <ul><li>X-Ray, ESP / Wallhack, FreeCam, Tracers, ChestESP</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">🤖 4. Автоматизация</span>
+                            <ul><li>Baritone, Auto-Farm, Auto-Fish, Auto-Sell, любые макросы</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">🛡️ 5. Обход анти-читов</span>
+                            <ul><li>Packet Modifiers, Ping Spoof, Timer / Blink</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">💀 6. Чит-клиенты</span>
+                            <ul><li>Wurst, Impact, Meteor, Aristois, RusherHack, Sigma, LiquidBounce, Future, Astolfo и тому подобные</li></ul>
+                        </li>
+                        <li>
+                            <span class="cat-title">⚠️ 7. Спорные моды</span>
+                            <ul>
+                                <li>Litematica (только просмотр, без авто-стройки)</li>
+                                <li>Миникарты с радаром сущностей сквозь стены</li>
+                                <li>Auto-Totem</li>
+                                <li>BetterWeaker (авто-установка блоков)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="logo"><span class="logo-dot"></span> GRASS SMP</div>
+            <div class="footer-social">
+                <a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://t.me/aron1478" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+            <p>© 2026 Grass SMP. Все права защищены. Не является официальным продуктом Mojang.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ---- Мобильное меню ----
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burger.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // ---- Подсветка активного раздела в липкой навигации ----
+        const navItems = document.querySelectorAll('.rules-nav a');
+        const sections = document.querySelectorAll('.acc[id]');
+
+        function onScroll() {
+            let current = 'mutes';
+            const pos = window.scrollY + 190;
+            sections.forEach(sec => {
+                if (pos >= sec.offsetTop) current = sec.id;
+            });
+            navItems.forEach(a => a.classList.toggle('on', a.dataset.target === current));
+        }
+
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+
+        // ---- Появление блоков при прокрутке ----
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('come');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+</html>
