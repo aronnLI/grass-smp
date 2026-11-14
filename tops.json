@@ -1,5 +1,5 @@
 {
-  "updated": "14.11.2026 22:53",
+  "updated": "14.11.2026 22:54",
   "tops": {
     "kills": [
       {"place":1,"name":"MIllsiXX","value":18,"text":"18"},
@@ -20,22 +20,22 @@
       {"place":4,"name":"2bearcool_ezz","value":17,"text":"17"},
       {"place":5,"name":"KUpy_AStro","value":14,"text":"14"},
       {"place":6,"name":"Cool_HuZ_NiK","value":13,"text":"13"},
-      {"place":7,"name":"samurai5","value":11,"text":"11"},
-      {"place":8,"name":"MIllsiXX","value":10,"text":"10"},
+      {"place":7,"name":"MIllsiXX","value":11,"text":"11"},
+      {"place":8,"name":"samurai5","value":11,"text":"11"},
       {"place":9,"name":"Sigma22845255","value":10,"text":"10"},
       {"place":10,"name":"HeavyEnvy","value":9,"text":"9"}
     ],
     "time": [
-      {"place":1,"name":"MadFlaps","value":415,"text":"6h 55m"},
+      {"place":1,"name":"MadFlaps","value":416,"text":"6h 56m"},
       {"place":2,"name":"bobragovno","value":397,"text":"6h 37m"},
-      {"place":3,"name":"MIllsiXX","value":352,"text":"5h 52m"},
+      {"place":3,"name":"MIllsiXX","value":353,"text":"5h 53m"},
       {"place":4,"name":"KUpy_AStro","value":264,"text":"4h 24m"},
       {"place":5,"name":"123vf","value":261,"text":"4h 21m"},
-      {"place":6,"name":"aroncikk","value":221,"text":"3h 41m"},
+      {"place":6,"name":"aroncikk","value":222,"text":"3h 42m"},
       {"place":7,"name":"Cool_HuZ_NiK","value":168,"text":"2h 48m"},
       {"place":8,"name":"2bearcool_ezz","value":154,"text":"2h 34m"},
-      {"place":9,"name":"zhans3330","value":140,"text":"2h 20m"},
-      {"place":10,"name":"ComBane","value":138,"text":"2h 18m"}
+      {"place":9,"name":"zhans3330","value":141,"text":"2h 21m"},
+      {"place":10,"name":"ComBane","value":139,"text":"2h 19m"}
     ],
     "points": [
       {"place":1,"name":"O_O","value":162,"text":"162"},
