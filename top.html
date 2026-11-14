@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrassHoloTops — Топ игроков</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        min-height: 100vh;
+        background: radial-gradient(circle at 20% 0%, #0f3d2a 0%, #0a0f0d 45%, #050807 100%);
+        color: #e6f2ec;
+        padding: 40px 20px;
+      }
+      .container { max-width: 1000px; margin: 0 auto; }
+      .hero { text-align: center; margin-bottom: 36px; }
+      .title {
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        background: linear-gradient(90deg, #2FE04E, #00FFCC);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .accent { opacity: .9; }
+      .subtitle { color: #8aa89a; margin-top: 8px; font-size: 15px; }
+      .badge {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 5px 14px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #00ffcc;
+        background: rgba(0, 255, 204, .08);
+        border: 1px solid rgba(0, 255, 204, .35);
+        border-radius: 30px;
+        box-shadow: 0 0 18px rgba(0, 255, 204, .25);
+      }
+      .card {
+        background: rgba(255, 255, 255, .055);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, .10);
+        border-radius: 18px;
+        padding: 24px 26px;
+        margin-bottom: 26px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+      }
+      .card-title {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: .5px;
+        margin-bottom: 14px;
+      }
+      .top { width: 100%; border-collapse: collapse; }
+      .top th {
+        text-align: left;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #7f9c8e;
+        padding: 8px 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+      }
+      .top td {
+        padding: 11px 12px;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, .05);
+      }
+      .top tr:last-child td { border-bottom: none; }
+      .top .place { width: 64px; font-weight: 700; color: #a9c4b6; }
+      .top .player { font-weight: 600; }
+      .top .value { text-align: right; font-weight: 800; color: #2FE04E; }
+      .row:hover td { background: rgba(255, 255, 255, .04); }
+      /* медальные места */
+      tr.gold td { background: linear-gradient(90deg, rgba(255, 215, 0, .28), rgba(255, 215, 0, .06)); }
+      tr.gold td:first-child { background: #ffd700; color: #1a1300; }
+      tr.silver td { background: linear-gradient(90deg, rgba(192, 192, 192, .30), rgba(192, 192, 192, .06)); }
+      tr.silver td:first-child { background: #c0c0c0; color: #141414; }
+      tr.bronze td { background: linear-gradient(90deg, rgba(205, 127, 50, .30), rgba(205, 127, 50, .06)); }
+      tr.bronze td:first-child { background: #cd7f32; color: #1d0f02; }
+      .top tr.gold, .top tr.silver, .top tr.bronze { border-radius: 8px; }
+      .empty { text-align: center; color: #6b8276; padding: 20px; }
+      .footer { text-align: center; color: #5f7569; font-size: 13px; margin-top: 10px; }
+      @media (max-width: 600px) {
+        .title { font-size: 30px; }
+        .card { padding: 16px; }
+        .top td { font-size: 13px; padding: 9px 8px; }
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1 class="title">Grass<span class="accent">Holo</span>Tops</h1>
+      <p class="subtitle">Статистика и топы игроков сервера</p>
+      <span class="badge">live</span>
+    </header>
+    <section class="card Top-Kills">
+      <h2 class="card-title" style="background: linear-gradient(90deg, #2FE04E, #00FFCC); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ТОП ПО УБИЙСТВАМ</h2>
+      <table class="top">
+        <thead>
+          <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="3" class="empty">Пока нет данных</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="card Top-Deaths">
+      <h2 class="card-title" style="background: linear-gradient(90deg, #FF5E5E, #FF2D2D); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ТОП ПО СМЕРТЯМ</h2>
+      <table class="top">
+        <thead>
+          <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="3" class="empty">Пока нет данных</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="card Top-Time">
+      <h2 class="card-title" style="background: linear-gradient(90deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ТОП ПО ВРЕМЕНИ В ИГРЕ</h2>
+      <table class="top">
+        <thead>
+          <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+        </thead>
+        <tbody>
+          <tr class="gold">
+            <td class="place">1</td>
+            <td class="player">aroncikk</td>
+            <td class="value">6m</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="card Top-Points">
+      <h2 class="card-title" style="background: linear-gradient(90deg, #B24BFF, #7A00FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ТОП ПО АМЕТИСТАМ</h2>
+      <table class="top">
+        <thead>
+          <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+        </thead>
+        <tbody>
+          <tr class="gold">
+            <td class="place">1</td>
+            <td class="player">aroncikk</td>
+            <td class="value">1100</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <footer class="footer">Обновлено: 14.11.2026 21:03</footer>
+  </div>
+</body>
+</html>
