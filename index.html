@@ -660,10 +660,16 @@
         .top-frame iframe {
             display: block;
             width: 100%;
-            height: 750px;
+            height: 750px; /* запас, JS растянет под контент */
             border: none;
             border-radius: 12px;
             background: rgba(11, 15, 14, 0.4);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .top-frame iframe::-webkit-scrollbar {
+            display: none;
         }
 
         /* ------- Responsive ------- */
@@ -814,7 +820,11 @@
         <p class="section-subtitle reveal">Лучшие шахтеры и строители Grass SMP прямо сейчас!</p>
 
         <div class="top-frame reveal reveal-zoom">
-            <iframe src="top.html" title="Топ игроков" loading="lazy"></iframe>
+            <iframe id="topIframe" src="top.html" title="Топ игроков" scrolling="no"></iframe>
+        </div>
+
+        <div class="top-actions reveal" style="text-align:center; margin-top: 24px;">
+            <a href="top.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🖥 Открыть на отдельной странице</a>
         </div>
     </section>
 
@@ -987,6 +997,34 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ========== Авто-высота топа игроков ==========
+        // Растягивает iframe под высоту его содержимого, чтобы не было прокрутки внутри.
+        // top.html лежит на том же домене, поэтому доступ к iframe безопасен (same-origin).
+        const topIframe = document.getElementById('topIframe');
+
+        function resizeTop() {
+            if (!topIframe) return;
+            try {
+                const doc = topIframe.contentDocument || topIframe.contentWindow.document;
+                if (doc && doc.body) {
+                    const h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+                    if (h > 100) topIframe.style.height = h + 'px';
+                }
+            } catch (e) {
+                // та же страница/недоступно — оставляем CSS-высоту по умолчанию
+            }
+        }
+
+        if (topIframe) {
+            topIframe.addEventListener('load', () => {
+                resizeTop();
+                // на всякий случай ещё раз после полной прорисовки
+                setTimeout(resizeTop, 300);
+            });
+            // если файл ещё не создан — ловим загрузку повторно
+            setInterval(resizeTop, 5000);
+        }
 
         // ========== Живой статус сервера ==========
         const SERVER_HOST = 'Grasland.minerent.io';
