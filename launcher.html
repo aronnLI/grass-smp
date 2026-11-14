@@ -128,6 +128,7 @@
         <button class="tab-btn" data-page="rules.html" id="tabRules">Правила</button>
         <button class="tab-btn" data-page="donate.html" id="tabDonate">Донат</button>
         <button class="tab-btn" data-page="cart.html" id="tabCart">Корзина</button>
+        <button class="tab-btn" data-page="top.html" id="tabTop">👑 Топ</button>
     </nav>
 
     <div class="view">
@@ -135,6 +136,7 @@
         <iframe id="rulesFrame" src="rules.html" title="Правила"></iframe>
         <iframe id="donateFrame" src="donate.html" title="Донат"></iframe>
         <iframe id="cartFrame" src="cart.html" title="Корзина"></iframe>
+        <iframe id="topFrame" src="top.html" title="Топ игроков"></iframe>
     </div>
 
     <script>
@@ -142,14 +144,16 @@
             main: document.getElementById('mainFrame'),
             rules: document.getElementById('rulesFrame'),
             donate: document.getElementById('donateFrame'),
-            cart: document.getElementById('cartFrame')
+            cart: document.getElementById('cartFrame'),
+            top: document.getElementById('topFrame')
         };
 
         const buttons = {
             main: document.getElementById('tabMain'),
             rules: document.getElementById('tabRules'),
             donate: document.getElementById('tabDonate'),
-            cart: document.getElementById('tabCart')
+            cart: document.getElementById('tabCart'),
+            top: document.getElementById('tabTop')
         };
 
         function switchTab(key) {
@@ -166,6 +170,7 @@
         buttons.rules.addEventListener('click', () => switchTab('rules'));
         buttons.donate.addEventListener('click', () => switchTab('donate'));
         buttons.cart.addEventListener('click', () => switchTab('cart'));
+        buttons.top.addEventListener('click', () => switchTab('top'));
     </script>
 
 </body>

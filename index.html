@@ -638,40 +638,6 @@
             color: var(--text-muted);
         }
 
-        /* ------- Топ игроков ------- */
-        #top .section-title {
-            color: var(--green);
-            text-shadow: 0 0 24px rgba(47, 224, 78, 0.45);
-        }
-
-        .top-frame {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 12px;
-            background: rgba(30, 30, 46, 0.55);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(47, 224, 78, 0.35);
-            border-radius: 18px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
-            overflow: hidden;
-        }
-
-        .top-frame iframe {
-            display: block;
-            width: 100%;
-            height: 750px; /* запас, JS растянет под контент */
-            border: none;
-            border-radius: 12px;
-            background: rgba(11, 15, 14, 0.4);
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .top-frame iframe::-webkit-scrollbar {
-            display: none;
-        }
-
         /* ------- Responsive ------- */
         @media (max-width: 768px) {
             .nav-links {
@@ -699,15 +665,6 @@
             .about-grid,
             .stats {
                 grid-template-columns: 1fr;
-            }
-
-            .top-frame {
-                margin: 0 -8px;
-                border-radius: 14px;
-            }
-
-            .top-frame iframe {
-                height: 900px;
             }
         }
     </style>
@@ -811,20 +768,6 @@
                 Только зашёл? Начни с безопасного спавна — там тебя встретят полезные предметы и подсказки.
                 Забери стартовый набор, осмотри клановые земли и найди место под первый дом. Не забудь прочитать правила ниже!
             </p>
-        </div>
-    </section>
-
-    <!-- Top Players -->
-    <section id="top">
-        <h2 class="section-title reveal">👑 Топ игроков</h2>
-        <p class="section-subtitle reveal">Лучшие шахтеры и строители Grass SMP прямо сейчас!</p>
-
-        <div class="top-frame reveal reveal-zoom">
-            <iframe id="topIframe" src="top.html" title="Топ игроков" scrolling="no"></iframe>
-        </div>
-
-        <div class="top-actions reveal" style="text-align:center; margin-top: 24px;">
-            <a href="top.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline">🖥 Открыть на отдельной странице</a>
         </div>
     </section>
 
@@ -997,34 +940,6 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // ========== Авто-высота топа игроков ==========
-        // Растягивает iframe под высоту его содержимого, чтобы не было прокрутки внутри.
-        // top.html лежит на том же домене, поэтому доступ к iframe безопасен (same-origin).
-        const topIframe = document.getElementById('topIframe');
-
-        function resizeTop() {
-            if (!topIframe) return;
-            try {
-                const doc = topIframe.contentDocument || topIframe.contentWindow.document;
-                if (doc && doc.body) {
-                    const h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
-                    if (h > 100) topIframe.style.height = h + 'px';
-                }
-            } catch (e) {
-                // та же страница/недоступно — оставляем CSS-высоту по умолчанию
-            }
-        }
-
-        if (topIframe) {
-            topIframe.addEventListener('load', () => {
-                resizeTop();
-                // на всякий случай ещё раз после полной прорисовки
-                setTimeout(resizeTop, 300);
-            });
-            // если файл ещё не создан — ловим загрузку повторно
-            setInterval(resizeTop, 5000);
-        }
 
         // ========== Живой статус сервера ==========
         const SERVER_HOST = 'Grasland.minerent.io';
