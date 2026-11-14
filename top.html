@@ -292,9 +292,7 @@
                     <thead>
                         <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
                     </thead>
-                    <tbody>
-                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
-                    </tbody>
+                    <tbody id="topBodyKills"></tbody>
                 </table>
             </div>
 
@@ -305,9 +303,7 @@
                     <thead>
                         <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
                     </thead>
-                    <tbody>
-                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
-                    </tbody>
+                    <tbody id="topBodyDeaths"></tbody>
                 </table>
             </div>
 
@@ -318,9 +314,7 @@
                     <thead>
                         <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
                     </thead>
-                    <tbody>
-                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
-                    </tbody>
+                    <tbody id="topBodyTime"></tbody>
                 </table>
             </div>
 
@@ -331,9 +325,7 @@
                     <thead>
                         <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
                     </thead>
-                    <tbody>
-                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
-                    </tbody>
+                    <tbody id="topBodyPoints"></tbody>
                 </table>
             </div>
 
@@ -363,6 +355,71 @@
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => navLinks.classList.remove('open'));
         });
+
+        // ========== ТОПЫ: загрузка с tops.json ==========
+        const TOP_SOURCE = 'tops.json'; // файл лежит рядом с top.html в репозитории
+        const TOP_SIZE = 10;
+
+        const bodies = {
+            kills:  document.getElementById('topBodyKills'),
+            deaths: document.getElementById('topBodyDeaths'),
+            time:   document.getElementById('topBodyTime'),
+            points: document.getElementById('topBodyPoints')
+        };
+
+        function medalClass(place) {
+            if (place === 1) return 'gold';
+            if (place === 2) return 'silver';
+            if (place === 3) return 'bronze';
+            return '';
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function renderTable(key, entries) {
+            const tbody = bodies[key];
+            if (!tbody) return;
+            if (!entries || !entries.length) {
+                tbody.innerHTML = '<tr class="placeholder"><td colspan="3"><span>📭</span>Нет данных</td></tr>';
+                return;
+            }
+            let html = '';
+            entries.slice(0, TOP_SIZE).forEach((entry, i) => {
+                const cls = medalClass(i + 1);
+                html += `<tr>` +
+                        `<td class="place ${cls}">${i + 1}</td>` +
+                        `<td class="player-name">${escapeHtml(entry.name)}</td>` +
+                        `<td class="value">${escapeHtml(entry.text)}</td>` +
+                        `</tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        function loadTops() {
+            fetch(TOP_SOURCE, { cache: 'no-store' })
+                .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+                .then(data => {
+                    const tops = data.tops || {};
+                    Object.keys(bodies).forEach(key => renderTable(key, tops[key] || []));
+                })
+                .catch(() => {
+                    Object.keys(bodies).forEach(key => {
+                        if (bodies[key]) {
+                            bodies[key].innerHTML =
+                                '<tr class="placeholder"><td colspan="3"><span>⚠️</span>Не удалось загрузить</td></tr>';
+                        }
+                    });
+                });
+        }
+
+        loadTops();
+        setInterval(loadTops, 120000);
     </script>
 
 </body>
