@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Топ игроков — Grass SMP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #11111b;
+            color: #cdd6f4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* мягкие цветовые пятна на фоне, чтобы не было скучно */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::before {
+            top: -120px;
+            left: -120px;
+            background: rgba(47, 224, 78, 0.14);
+        }
+
+        body::after {
+            bottom: -140px;
+            right: -120px;
+            background: rgba(0, 255, 204, 0.12);
+        }
+
+        /* Glassmorphism-карточка */
+        .card {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            width: 100%;
+            padding: 60px 40px;
+            text-align: center;
+            background: rgba(30, 30, 46, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(47, 224, 78, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                        0 0 40px rgba(47, 224, 78, 0.08);
+        }
+
+        /* анимированная иконка */
+        .card .icon {
+            font-size: 3.4rem;
+            display: inline-block;
+            margin-bottom: 18px;
+            animation: float 2.6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-weight: 700;
+            color: #2FE04E;
+            margin-bottom: 16px;
+            text-shadow: 0 0 26px rgba(47, 224, 78, 0.5);
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: rgba(47, 224, 78, 0.1);
+            border: 1px solid rgba(47, 224, 78, 0.3);
+            color: #2FE04E;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+
+        /* пульсирующий спиннер */
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(47, 224, 78, 0.25);
+            border-top-color: #2FE04E;
+            animation: spin 0.9s linear infinite;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #a6adc8;
+        }
+
+        p.title-text {
+            color: #cdd6f4;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 44px 24px; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="icon">👑</span>
+        <h1>Топ игроков</h1>
+        <div class="status">
+            <span class="spinner"></span>
+            Сбор данных с сервера...
+        </div>
+        <p class="title-text">Готовим для тебя лучших шахтеров и строителей!</p>
+        <p>Таблица появится здесь совсем скоро.</p>
+    </div>
+</body>
+</html>
