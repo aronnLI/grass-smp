@@ -4,145 +4,366 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Топ игроков — Grass SMP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --green: #2FE04E;
+            --teal: #00FFCC;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+            --bg-dark: #11111b;
+            --bg-card: rgba(30, 30, 46, 0.45);
+            --bg-header: rgba(17, 17, 27, 0.6);
+            --text-main: #cdd6f4;
+            --text-muted: #a6adc8;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #11111b;
-            color: #cdd6f4;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            overflow-x: hidden;
-            position: relative;
+            flex-direction: column;
         }
 
-        /* мягкие цветовые пятна на фоне, чтобы не было скучно */
-        body::before,
-        body::after {
+        /* тёмный оверлей поверх фона */
+        body::before {
             content: '';
-            position: fixed;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(17, 17, 27, 0.85);
+            z-index: -1;
             pointer-events: none;
         }
 
-        body::before {
-            top: -120px;
-            left: -120px;
-            background: rgba(47, 224, 78, 0.14);
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; }
+
+        /* ------- Header ------- */
+        header {
+            position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
+            background: var(--bg-header);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(47, 224, 78, 0.15);
         }
 
-        body::after {
-            bottom: -140px;
-            right: -120px;
-            background: rgba(0, 255, 204, 0.12);
+        .nav {
+            max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
         }
 
-        /* Glassmorphism-карточка */
-        .card {
-            position: relative;
-            z-index: 1;
-            max-width: 560px;
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.35rem; color: var(--green); }
+
+        .logo-dot {
+            width: 12px; height: 12px; border-radius: 3px;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            display: inline-block; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(47, 224, 78, 0.5); }
+            50% { box-shadow: 0 0 0 9px rgba(47, 224, 78, 0); }
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
+
+        .nav-links a:not(.nav-cta) {
+            font-weight: 600; font-size: 0.95rem; color: var(--text-muted);
+            position: relative; transition: color 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta)::after {
+            content: ''; position: absolute; bottom: -6px; left: 0;
+            width: 0; height: 2px; background: var(--green); transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-cta):hover { color: var(--green); }
+        .nav-links a:not(.nav-cta):hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 10px 22px; border-radius: 8px; font-weight: 700;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            color: #11111b; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0, 255, 204, 0.4); }
+
+        .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 110; }
+        .burger span { width: 26px; height: 3px; border-radius: 3px; background: var(--green); transition: all 0.3s ease; }
+        .nav-links.open { transform: translateY(0); }
+        .active-link { color: var(--green) !important; }
+        .active-link::after { width: 100% !important; }
+
+        /* ------- Hero ------- */
+        .page-hero {
+            padding: 90px 24px 30px; text-align: center; position: relative;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
+            color: var(--green);
+            text-shadow: 0 0 28px rgba(47, 224, 78, 0.45);
+        }
+
+        .page-hero p { color: var(--text-muted); max-width: 600px; margin: 14px auto 0; }
+
+        /* ------- Сетка карточек ------- */
+        .content {
+            flex: 1;
+            max-width: 1200px; width: 100%;
+            margin: 0 auto; padding: 30px 24px 60px;
+        }
+
+        .top-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
             width: 100%;
-            padding: 60px 40px;
-            text-align: center;
-            background: rgba(30, 30, 46, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(47, 224, 78, 0.3);
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-                        0 0 40px rgba(47, 224, 78, 0.08);
         }
 
-        /* анимированная иконка */
-        .card .icon {
-            font-size: 3.4rem;
-            display: inline-block;
+        .top-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .top-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
+
+        .top-card h2 {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 1.25rem; font-weight: 800; color: var(--green);
             margin-bottom: 18px;
-            animation: float 2.6s ease-in-out infinite;
         }
 
-        h1 {
-            font-size: clamp(1.8rem, 5vw, 2.4rem);
+        .top-card .card-icon { font-size: 1.5rem; }
+
+        /* ------- Таблица ------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 10px 12px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
             font-weight: 700;
-            color: #2FE04E;
-            margin-bottom: 16px;
-            text-shadow: 0 0 26px rgba(47, 224, 78, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(47, 224, 78, 0.2);
         }
 
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 18px;
-            border-radius: 50px;
-            background: rgba(47, 224, 78, 0.1);
-            border: 1px solid rgba(47, 224, 78, 0.3);
-            color: #2FE04E;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 18px;
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* пульсирующий спиннер */
-        .spinner {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid rgba(47, 224, 78, 0.25);
-            border-top-color: #2FE04E;
-            animation: spin 0.9s linear infinite;
+        tbody tr:last-child td { border-bottom: none; }
+
+        tbody tr { transition: background 0.2s ease; }
+        tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+
+        /* колонка места */
+        .place {
+            font-weight: 800;
+            width: 44px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
         }
 
-        p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #a6adc8;
+        /* золото / серебро / бронза */
+        .place.gold { color: var(--gold); background: rgba(255, 215, 0, 0.12); text-shadow: 0 0 12px rgba(255, 215, 0, 0.4); }
+        .place.silver { color: var(--silver); background: rgba(192, 192, 192, 0.12); text-shadow: 0 0 12px rgba(192, 192, 192, 0.35); }
+        .place.bronze { color: var(--bronze); background: rgba(205, 127, 50, 0.14); text-shadow: 0 0 12px rgba(205, 127, 50, 0.35); }
+
+        .player-name { font-weight: 700; color: var(--text-main); }
+        .value { font-weight: 800; color: var(--teal); text-align: right; }
+
+        /* заглушка "данные загружаются" */
+        .placeholder td {
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+            padding: 26px 12px;
+            border-bottom: none;
         }
 
-        p.title-text {
-            color: #cdd6f4;
-            font-weight: 600;
-            margin-bottom: 6px;
+        .placeholder td span {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 8px;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        /* ------- Footer ------- */
+        footer {
+            border-top: 1px solid rgba(47, 224, 78, 0.15); padding: 36px 24px;
+            background: rgba(17, 17, 27, 0.85); backdrop-filter: blur(8px);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a {
+            padding: 10px 18px; border-radius: 10px; font-weight: 600;
+            color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        .footer-social a:hover { color: var(--green); border-color: var(--green); transform: translateY(-2px); }
+        footer p { color: var(--text-muted); font-size: 0.88rem; text-align: center; }
+
+        /* ------- Responsive ------- */
+        @media (max-width: 992px) {
+            .top-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
         }
 
-        @media (max-width: 480px) {
-            .card { padding: 44px 24px; }
-            h1 { font-size: 1.6rem; }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: rgba(17, 17, 27, 0.98);
+                flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+                transform: translateY(-130%); transition: transform 0.4s ease; padding: 40px 0;
+            }
+
+            .burger { display: flex; }
+            .burger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .burger.active span:nth-child(2) { opacity: 0; }
+            .burger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <span class="icon">👑</span>
-        <h1>Топ игроков</h1>
-        <div class="status">
-            <span class="spinner"></span>
-            Сбор данных с сервера...
-        </div>
-        <p class="title-text">Готовим для тебя лучших шахтеров и строителей!</p>
-        <p>Таблица появится здесь совсем скоро.</p>
+
+    <!-- Header -->
+    <header>
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <span class="logo-dot"></span>
+                GRASS SMP
+            </a>
+
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html#about">О сервере</a></li>
+                <li><a href="donate.html">Донат</a></li>
+                <li><a href="rules.html">Правила</a></li>
+                <li><a href="top.html" class="active-link">Топ игроков</a></li>
+                <li><a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer" class="nav-cta">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <div class="page-hero">
+        <h1>👑 Топ игроков</h1>
+        <p>Лучшие игроки Grass SMP — лидерборды обновляются автоматически с сервера.</p>
     </div>
+
+    <!-- Карточки с таблицами -->
+    <main class="content">
+        <div class="top-grid">
+
+            <!-- Топ по киллам -->
+            <div class="top-card">
+                <h2><span class="card-icon">⚔️</span> Топ по киллам</h2>
+                <table>
+                    <thead>
+                        <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Топ по смертям -->
+            <div class="top-card">
+                <h2><span class="card-icon">💀</span> Топ по смертям</h2>
+                <table>
+                    <thead>
+                        <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Топ по времени -->
+            <div class="top-card">
+                <h2><span class="card-icon">⏱️</span> Топ по времени</h2>
+                <table>
+                    <thead>
+                        <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Топ по аметистам -->
+            <div class="top-card">
+                <h2><span class="card-icon">💎</span> Топ по аметистам</h2>
+                <table>
+                    <thead>
+                        <tr><th>Место</th><th>Игрок</th><th>Значение</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="placeholder"><td colspan="3"><span>📊</span>Данные загружаются...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="logo"><span class="logo-dot"></span> GRASS SMP</div>
+            <div class="footer-social">
+                <a href="https://discord.gg/eeHx65G4p" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://t.me/aron1478" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+            <p>© 2026 Grass SMP. Все права защищены. Не является официальным продуктом Mojang.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ---- Мобильное меню ----
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            burger.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+    </script>
+
 </body>
 </html>
