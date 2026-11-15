@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 10:27",
+  "updated": "15.11.2026 10:28",
   "tops": {
     "kills": [
     ],
@@ -10,13 +10,14 @@
     "time": [
       {"place":1,"name":"bobragovno","value":25,"text":"25m"},
       {"place":2,"name":"gava_gava_hav","value":15,"text":"15m"},
-      {"place":3,"name":"aroncikk","value":14,"text":"14m"},
-      {"place":4,"name":"pwp228","value":14,"text":"14m"},
+      {"place":3,"name":"pwp228","value":15,"text":"15m"},
+      {"place":4,"name":"aroncikk","value":14,"text":"14m"},
       {"place":5,"name":"zhans3330","value":13,"text":"13m"},
       {"place":6,"name":"zalypa89776","value":7,"text":"7m"},
-      {"place":7,"name":"123vf","value":3,"text":"3m"},
-      {"place":8,"name":"NeyJe","value":3,"text":"3m"},
-      {"place":9,"name":"16_ifaa16","value":1,"text":"1m"}
+      {"place":7,"name":"NeyJe","value":4,"text":"4m"},
+      {"place":8,"name":"123vf","value":3,"text":"3m"},
+      {"place":9,"name":"16_ifaa16","value":1,"text":"1m"},
+      {"place":10,"name":"grno6767","value":1,"text":"1m"}
     ],
     "points": [
       {"place":1,"name":"aroncikk","value":310,"text":"310"},
