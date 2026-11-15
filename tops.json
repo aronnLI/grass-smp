@@ -1,29 +1,37 @@
 {
-  "updated": "15.11.2026 10:29",
+  "updated": "15.11.2026 11:28",
   "tops": {
     "kills": [
+      {"place":1,"name":"zhans3330","value":2,"text":"2"},
+      {"place":2,"name":"O_O","value":1,"text":"1"},
+      {"place":3,"name":"aroncikk","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"pwp228","value":5,"text":"5"},
-      {"place":2,"name":"gava_gava_hav","value":1,"text":"1"}
+      {"place":1,"name":"O_O","value":4,"text":"4"},
+      {"place":2,"name":"NeyJe","value":3,"text":"3"},
+      {"place":3,"name":"pwp228","value":2,"text":"2"},
+      {"place":4,"name":"grno6767","value":1,"text":"1"},
+      {"place":5,"name":"bobragovno","value":1,"text":"1"},
+      {"place":6,"name":"_Tai","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"bobragovno","value":25,"text":"25m"},
-      {"place":2,"name":"pwp228","value":16,"text":"16m"},
-      {"place":3,"name":"gava_gava_hav","value":15,"text":"15m"},
-      {"place":4,"name":"aroncikk","value":14,"text":"14m"},
-      {"place":5,"name":"zhans3330","value":13,"text":"13m"},
-      {"place":6,"name":"zalypa89776","value":7,"text":"7m"},
-      {"place":7,"name":"NeyJe","value":5,"text":"5m"},
-      {"place":8,"name":"123vf","value":3,"text":"3m"},
-      {"place":9,"name":"grno6767","value":2,"text":"2m"},
-      {"place":10,"name":"16_ifaa16","value":1,"text":"1m"}
+      {"place":1,"name":"NeyJe","value":53,"text":"53m"},
+      {"place":2,"name":"grno6767","value":52,"text":"52m"},
+      {"place":3,"name":"zhans3330","value":50,"text":"50m"},
+      {"place":4,"name":"bobragovno","value":45,"text":"45m"},
+      {"place":5,"name":"KUpy_AStro","value":41,"text":"41m"},
+      {"place":6,"name":"O_O","value":38,"text":"38m"},
+      {"place":7,"name":"aroncikk","value":38,"text":"38m"},
+      {"place":8,"name":"fantik1","value":34,"text":"34m"},
+      {"place":9,"name":"123vf","value":32,"text":"32m"},
+      {"place":10,"name":"16_ifaa16","value":24,"text":"24m"}
     ],
     "points": [
-      {"place":1,"name":"aroncikk","value":310,"text":"310"},
-      {"place":2,"name":"O_O","value":162,"text":"162"},
-      {"place":3,"name":"16_ifaa16","value":20,"text":"20"},
-      {"place":4,"name":"bobragovno","value":8,"text":"8"}
+      {"place":1,"name":"O_O","value":252,"text":"252"},
+      {"place":2,"name":"aroncikk","value":193,"text":"193"},
+      {"place":3,"name":"fantik1","value":20,"text":"20"},
+      {"place":4,"name":"16_ifaa16","value":20,"text":"20"},
+      {"place":5,"name":"bobragovno","value":8,"text":"8"}
     ]
   }
 }
