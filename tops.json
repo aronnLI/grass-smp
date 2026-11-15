@@ -1,40 +1,23 @@
 {
-  "updated": "15.11.2026 09:37",
+  "updated": "15.11.2026 10:09",
   "tops": {
     "kills": [
-      {"place":1,"name":"zhans3330","value":1,"text":"1"},
-      {"place":2,"name":"xuligan145","value":1,"text":"1"},
-      {"place":3,"name":"123vf","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"bobragovno","value":14,"text":"14"},
-      {"place":2,"name":"gusis_","value":13,"text":"13"},
-      {"place":3,"name":"st717","value":7,"text":"7"},
-      {"place":4,"name":"123vf","value":6,"text":"6"},
-      {"place":5,"name":"kotleta_smerti","value":5,"text":"5"},
-      {"place":6,"name":"MadFlaps","value":4,"text":"4"},
-      {"place":7,"name":"xuligan145","value":4,"text":"4"},
-      {"place":8,"name":"nahal1337","value":3,"text":"3"},
-      {"place":9,"name":"ComBane","value":2,"text":"2"},
-      {"place":10,"name":"qwilzy","value":2,"text":"2"}
+      {"place":1,"name":"gava_gava_hav","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"bobragovno","value":141,"text":"2h 21m"},
-      {"place":2,"name":"123vf","value":116,"text":"1h 56m"},
-      {"place":3,"name":"MIllsiXX","value":57,"text":"57m"},
-      {"place":4,"name":"MadFlaps","value":57,"text":"57m"},
-      {"place":5,"name":"qwilzy","value":48,"text":"48m"},
-      {"place":6,"name":"zalypa89776","value":40,"text":"40m"},
-      {"place":7,"name":"zhans3330","value":33,"text":"33m"},
-      {"place":8,"name":"xuligan145","value":32,"text":"32m"},
-      {"place":9,"name":"KUpy_AStro","value":26,"text":"26m"},
-      {"place":10,"name":"nahal1337","value":26,"text":"26m"}
+      {"place":1,"name":"bobragovno","value":22,"text":"22m"},
+      {"place":2,"name":"gava_gava_hav","value":15,"text":"15m"},
+      {"place":3,"name":"aroncikk","value":12,"text":"12m"},
+      {"place":4,"name":"zalypa89776","value":7,"text":"7m"},
+      {"place":5,"name":"zhans3330","value":7,"text":"7m"},
+      {"place":6,"name":"16_ifaa16","value":1,"text":"1m"}
     ],
     "points": [
       {"place":1,"name":"aroncikk","value":310,"text":"310"},
-      {"place":2,"name":"ebyuwu","value":20,"text":"20"},
-      {"place":3,"name":"16_ifaa16","value":20,"text":"20"},
-      {"place":4,"name":"bobragovno","value":8,"text":"8"}
+      {"place":2,"name":"16_ifaa16","value":20,"text":"20"},
+      {"place":3,"name":"bobragovno","value":8,"text":"8"}
     ]
   }
 }
