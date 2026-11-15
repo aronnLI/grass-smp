@@ -1,10 +1,10 @@
 {
-  "updated": "15.11.2026 19:33",
+  "updated": "15.11.2026 19:34",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
       {"place":2,"name":"zalypa89776","value":4,"text":"4"},
-      {"place":3,"name":"zhans3330","value":2,"text":"2"},
+      {"place":3,"name":"zhans3330","value":3,"text":"3"},
       {"place":4,"name":"TUser","value":2,"text":"2"},
       {"place":5,"name":"O_O","value":1,"text":"1"},
       {"place":6,"name":"123vf","value":1,"text":"1"},
@@ -26,16 +26,16 @@
       {"place":10,"name":"O_O","value":4,"text":"4"}
     ],
     "time": [
-      {"place":1,"name":"zhans3330","value":292,"text":"4h 52m"},
+      {"place":1,"name":"zhans3330","value":293,"text":"4h 53m"},
       {"place":2,"name":"MadFlaps","value":290,"text":"4h 50m"},
-      {"place":3,"name":"zalypa89776","value":270,"text":"4h 30m"},
+      {"place":3,"name":"zalypa89776","value":271,"text":"4h 31m"},
       {"place":4,"name":"aroncikk","value":189,"text":"3h 9m"},
-      {"place":5,"name":"KUpy_AStro","value":171,"text":"2h 51m"},
+      {"place":5,"name":"KUpy_AStro","value":172,"text":"2h 52m"},
       {"place":6,"name":"bobragovno","value":162,"text":"2h 42m"},
       {"place":7,"name":"fantik1","value":155,"text":"2h 35m"},
       {"place":8,"name":"TUser","value":95,"text":"1h 35m"},
       {"place":9,"name":"Ryzen","value":81,"text":"1h 21m"},
-      {"place":10,"name":"WDanaBatat1488W","value":79,"text":"1h 19m"}
+      {"place":10,"name":"WDanaBatat1488W","value":80,"text":"1h 20m"}
     ],
     "points": [
       {"place":1,"name":"O_O","value":252,"text":"252"},
