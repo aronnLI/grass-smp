@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 15:01",
+  "updated": "15.11.2026 15:02",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":4,"text":"4"},
@@ -9,27 +9,28 @@
       {"place":5,"name":"123vf","value":1,"text":"1"},
       {"place":6,"name":"bobragovno","value":1,"text":"1"},
       {"place":7,"name":"KUpy_AStro","value":1,"text":"1"},
-      {"place":8,"name":"Mavvix538","value":1,"text":"1"}
+      {"place":8,"name":"zalypa89776","value":1,"text":"1"},
+      {"place":9,"name":"Mavvix538","value":1,"text":"1"}
     ],
     "deaths": [
       {"place":1,"name":"bobragovno","value":8,"text":"8"},
       {"place":2,"name":"fantik1","value":8,"text":"8"},
       {"place":3,"name":"NeyJe","value":7,"text":"7"},
-      {"place":4,"name":"O_O","value":4,"text":"4"},
-      {"place":5,"name":"Banner_","value":4,"text":"4"},
-      {"place":6,"name":"TUser","value":4,"text":"4"},
+      {"place":4,"name":"TUser","value":5,"text":"5"},
+      {"place":5,"name":"O_O","value":4,"text":"4"},
+      {"place":6,"name":"Banner_","value":4,"text":"4"},
       {"place":7,"name":"Nocksosarovich","value":4,"text":"4"},
       {"place":8,"name":"Ryzen","value":4,"text":"4"},
       {"place":9,"name":"MadFlaps","value":3,"text":"3"},
       {"place":10,"name":"HeavyEnvy","value":3,"text":"3"}
     ],
     "time": [
-      {"place":1,"name":"MadFlaps","value":198,"text":"3h 18m"},
+      {"place":1,"name":"MadFlaps","value":199,"text":"3h 19m"},
       {"place":2,"name":"bobragovno","value":162,"text":"2h 42m"},
       {"place":3,"name":"aroncikk","value":155,"text":"2h 35m"},
       {"place":4,"name":"fantik1","value":155,"text":"2h 35m"},
       {"place":5,"name":"zhans3330","value":146,"text":"2h 26m"},
-      {"place":6,"name":"zalypa89776","value":142,"text":"2h 22m"},
+      {"place":6,"name":"zalypa89776","value":143,"text":"2h 23m"},
       {"place":7,"name":"NeyJe","value":77,"text":"1h 17m"},
       {"place":8,"name":"123vf","value":74,"text":"1h 14m"},
       {"place":9,"name":"KUpy_AStro","value":66,"text":"1h 6m"},
