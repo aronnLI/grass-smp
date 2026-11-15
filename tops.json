@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 12:28",
+  "updated": "15.11.2026 12:29",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":2,"text":"2"},
@@ -22,7 +22,7 @@
       {"place":10,"name":"KUpy_AStro","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"bobragovno","value":101,"text":"1h 41m"},
+      {"place":1,"name":"bobragovno","value":102,"text":"1h 42m"},
       {"place":2,"name":"aroncikk","value":94,"text":"1h 34m"},
       {"place":3,"name":"NeyJe","value":77,"text":"1h 17m"},
       {"place":4,"name":"fantik1","value":69,"text":"1h 9m"},
