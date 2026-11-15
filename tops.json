@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 20:51",
+  "updated": "15.11.2026 20:52",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -14,8 +14,8 @@
       {"place":10,"name":"bobragovno","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"TUser","value":9,"text":"9"},
-      {"place":2,"name":"ebyuwu","value":9,"text":"9"},
+      {"place":1,"name":"ebyuwu","value":10,"text":"10"},
+      {"place":2,"name":"TUser","value":9,"text":"9"},
       {"place":3,"name":"bobragovno","value":8,"text":"8"},
       {"place":4,"name":"fantik1","value":8,"text":"8"},
       {"place":5,"name":"NeyJe","value":7,"text":"7"},
@@ -26,8 +26,8 @@
       {"place":10,"name":"zhans3330","value":5,"text":"5"}
     ],
     "time": [
-      {"place":1,"name":"zhans3330","value":355,"text":"5h 55m"},
-      {"place":2,"name":"zalypa89776","value":331,"text":"5h 31m"},
+      {"place":1,"name":"zhans3330","value":356,"text":"5h 56m"},
+      {"place":2,"name":"zalypa89776","value":332,"text":"5h 32m"},
       {"place":3,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":4,"name":"KUpy_AStro","value":212,"text":"3h 32m"},
       {"place":5,"name":"aroncikk","value":206,"text":"3h 26m"},
