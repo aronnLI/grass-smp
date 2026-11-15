@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 10:13",
+  "updated": "15.11.2026 10:14",
   "tops": {
     "kills": [
     ],
@@ -9,11 +9,12 @@
     "time": [
       {"place":1,"name":"bobragovno","value":25,"text":"25m"},
       {"place":2,"name":"gava_gava_hav","value":15,"text":"15m"},
-      {"place":3,"name":"aroncikk","value":13,"text":"13m"},
-      {"place":4,"name":"zhans3330","value":8,"text":"8m"},
+      {"place":3,"name":"aroncikk","value":14,"text":"14m"},
+      {"place":4,"name":"zhans3330","value":9,"text":"9m"},
       {"place":5,"name":"zalypa89776","value":7,"text":"7m"},
       {"place":6,"name":"123vf","value":3,"text":"3m"},
-      {"place":7,"name":"16_ifaa16","value":1,"text":"1m"}
+      {"place":7,"name":"16_ifaa16","value":1,"text":"1m"},
+      {"place":8,"name":"pwp228","value":1,"text":"1m"}
     ],
     "points": [
       {"place":1,"name":"aroncikk","value":310,"text":"310"},
