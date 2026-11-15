@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 11:44",
+  "updated": "15.11.2026 11:45",
   "tops": {
     "kills": [
       {"place":1,"name":"zhans3330","value":2,"text":"2"},
@@ -13,23 +13,23 @@
       {"place":2,"name":"NeyJe","value":3,"text":"3"},
       {"place":3,"name":"fantik1","value":3,"text":"3"},
       {"place":4,"name":"pwp228","value":2,"text":"2"},
-      {"place":5,"name":"grno6767","value":1,"text":"1"},
-      {"place":6,"name":"bobragovno","value":1,"text":"1"},
-      {"place":7,"name":"_Tai","value":1,"text":"1"},
-      {"place":8,"name":"16_ifaa16","value":1,"text":"1"},
-      {"place":9,"name":"rykona1337","value":1,"text":"1"},
-      {"place":10,"name":"zim4k","value":1,"text":"1"}
+      {"place":5,"name":"Banner_","value":2,"text":"2"},
+      {"place":6,"name":"grno6767","value":1,"text":"1"},
+      {"place":7,"name":"bobragovno","value":1,"text":"1"},
+      {"place":8,"name":"_Tai","value":1,"text":"1"},
+      {"place":9,"name":"16_ifaa16","value":1,"text":"1"},
+      {"place":10,"name":"rykona1337","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"NeyJe","value":60,"text":"1h"},
-      {"place":2,"name":"bobragovno","value":60,"text":"1h"},
-      {"place":3,"name":"KUpy_AStro","value":56,"text":"56m"},
-      {"place":4,"name":"aroncikk","value":53,"text":"53m"},
+      {"place":1,"name":"NeyJe","value":61,"text":"1h 1m"},
+      {"place":2,"name":"bobragovno","value":61,"text":"1h 1m"},
+      {"place":3,"name":"KUpy_AStro","value":57,"text":"57m"},
+      {"place":4,"name":"aroncikk","value":54,"text":"54m"},
       {"place":5,"name":"grno6767","value":52,"text":"52m"},
       {"place":6,"name":"zhans3330","value":50,"text":"50m"},
-      {"place":7,"name":"fantik1","value":49,"text":"49m"},
-      {"place":8,"name":"123vf","value":47,"text":"47m"},
-      {"place":9,"name":"MadFlaps","value":39,"text":"39m"},
+      {"place":7,"name":"fantik1","value":50,"text":"50m"},
+      {"place":8,"name":"123vf","value":48,"text":"48m"},
+      {"place":9,"name":"MadFlaps","value":40,"text":"40m"},
       {"place":10,"name":"O_O","value":38,"text":"38m"}
     ],
     "points": [
