@@ -1,10 +1,12 @@
 {
-  "updated": "15.11.2026 11:41",
+  "updated": "15.11.2026 11:42",
   "tops": {
     "kills": [
       {"place":1,"name":"zhans3330","value":2,"text":"2"},
       {"place":2,"name":"O_O","value":1,"text":"1"},
-      {"place":3,"name":"aroncikk","value":1,"text":"1"}
+      {"place":3,"name":"123vf","value":1,"text":"1"},
+      {"place":4,"name":"aroncikk","value":1,"text":"1"},
+      {"place":5,"name":"KUpy_AStro","value":1,"text":"1"}
     ],
     "deaths": [
       {"place":1,"name":"O_O","value":4,"text":"4"},
@@ -14,19 +16,21 @@
       {"place":5,"name":"grno6767","value":1,"text":"1"},
       {"place":6,"name":"bobragovno","value":1,"text":"1"},
       {"place":7,"name":"_Tai","value":1,"text":"1"},
-      {"place":8,"name":"16_ifaa16","value":1,"text":"1"}
+      {"place":8,"name":"16_ifaa16","value":1,"text":"1"},
+      {"place":9,"name":"rykona1337","value":1,"text":"1"},
+      {"place":10,"name":"Banner_","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"NeyJe","value":57,"text":"57m"},
-      {"place":2,"name":"bobragovno","value":57,"text":"57m"},
-      {"place":3,"name":"KUpy_AStro","value":53,"text":"53m"},
+      {"place":1,"name":"NeyJe","value":58,"text":"58m"},
+      {"place":2,"name":"bobragovno","value":58,"text":"58m"},
+      {"place":3,"name":"KUpy_AStro","value":54,"text":"54m"},
       {"place":4,"name":"grno6767","value":52,"text":"52m"},
-      {"place":5,"name":"aroncikk","value":50,"text":"50m"},
+      {"place":5,"name":"aroncikk","value":51,"text":"51m"},
       {"place":6,"name":"zhans3330","value":50,"text":"50m"},
-      {"place":7,"name":"fantik1","value":46,"text":"46m"},
-      {"place":8,"name":"123vf","value":44,"text":"44m"},
+      {"place":7,"name":"fantik1","value":47,"text":"47m"},
+      {"place":8,"name":"123vf","value":45,"text":"45m"},
       {"place":9,"name":"O_O","value":38,"text":"38m"},
-      {"place":10,"name":"MadFlaps","value":36,"text":"36m"}
+      {"place":10,"name":"MadFlaps","value":37,"text":"37m"}
     ],
     "points": [
       {"place":1,"name":"O_O","value":252,"text":"252"},
