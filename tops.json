@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 21:18",
+  "updated": "15.11.2026 21:19",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -14,7 +14,7 @@
       {"place":10,"name":"bobragovno","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"HeavyEnvy","value":15,"text":"15"},
+      {"place":1,"name":"HeavyEnvy","value":17,"text":"17"},
       {"place":2,"name":"ebyuwu","value":10,"text":"10"},
       {"place":3,"name":"TUser","value":9,"text":"9"},
       {"place":4,"name":"bobragovno","value":8,"text":"8"},
@@ -27,14 +27,14 @@
     ],
     "time": [
       {"place":1,"name":"zhans3330","value":366,"text":"6h 6m"},
-      {"place":2,"name":"zalypa89776","value":358,"text":"5h 58m"},
+      {"place":2,"name":"zalypa89776","value":359,"text":"5h 59m"},
       {"place":3,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":4,"name":"KUpy_AStro","value":212,"text":"3h 32m"},
       {"place":5,"name":"aroncikk","value":206,"text":"3h 26m"},
       {"place":6,"name":"fantik1","value":179,"text":"2h 59m"},
       {"place":7,"name":"bobragovno","value":162,"text":"2h 42m"},
       {"place":8,"name":"WDanaBatat1488W","value":139,"text":"2h 19m"},
-      {"place":9,"name":"HeavyEnvy","value":102,"text":"1h 42m"},
+      {"place":9,"name":"HeavyEnvy","value":103,"text":"1h 43m"},
       {"place":10,"name":"TUser","value":95,"text":"1h 35m"}
     ],
     "points": [
