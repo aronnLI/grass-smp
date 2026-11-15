@@ -1,18 +1,19 @@
 {
-  "updated": "15.11.2026 10:17",
+  "updated": "15.11.2026 10:18",
   "tops": {
     "kills": [
     ],
     "deaths": [
-      {"place":1,"name":"gava_gava_hav","value":1,"text":"1"}
+      {"place":1,"name":"gava_gava_hav","value":1,"text":"1"},
+      {"place":2,"name":"pwp228","value":1,"text":"1"}
     ],
     "time": [
       {"place":1,"name":"bobragovno","value":25,"text":"25m"},
       {"place":2,"name":"gava_gava_hav","value":15,"text":"15m"},
       {"place":3,"name":"aroncikk","value":14,"text":"14m"},
-      {"place":4,"name":"zhans3330","value":12,"text":"12m"},
+      {"place":4,"name":"zhans3330","value":13,"text":"13m"},
       {"place":5,"name":"zalypa89776","value":7,"text":"7m"},
-      {"place":6,"name":"pwp228","value":4,"text":"4m"},
+      {"place":6,"name":"pwp228","value":5,"text":"5m"},
       {"place":7,"name":"123vf","value":3,"text":"3m"},
       {"place":8,"name":"16_ifaa16","value":1,"text":"1m"}
     ],
