@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 12:54",
+  "updated": "15.11.2026 12:55",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":2,"text":"2"},
@@ -22,10 +22,10 @@
       {"place":10,"name":"aroncikk","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"bobragovno","value":122,"text":"2h 2m"},
+      {"place":1,"name":"bobragovno","value":123,"text":"2h 3m"},
       {"place":2,"name":"aroncikk","value":94,"text":"1h 34m"},
-      {"place":3,"name":"MadFlaps","value":80,"text":"1h 20m"},
-      {"place":4,"name":"fantik1","value":79,"text":"1h 19m"},
+      {"place":3,"name":"MadFlaps","value":81,"text":"1h 21m"},
+      {"place":4,"name":"fantik1","value":80,"text":"1h 20m"},
       {"place":5,"name":"NeyJe","value":77,"text":"1h 17m"},
       {"place":6,"name":"123vf","value":68,"text":"1h 8m"},
       {"place":7,"name":"KUpy_AStro","value":66,"text":"1h 6m"},
