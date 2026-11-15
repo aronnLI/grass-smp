@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 11:52",
+  "updated": "15.11.2026 11:53",
   "tops": {
     "kills": [
       {"place":1,"name":"zhans3330","value":2,"text":"2"},
@@ -9,8 +9,8 @@
       {"place":5,"name":"KUpy_AStro","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"O_O","value":4,"text":"4"},
-      {"place":2,"name":"NeyJe","value":3,"text":"3"},
+      {"place":1,"name":"NeyJe","value":5,"text":"5"},
+      {"place":2,"name":"O_O","value":4,"text":"4"},
       {"place":3,"name":"fantik1","value":3,"text":"3"},
       {"place":4,"name":"Banner_","value":3,"text":"3"},
       {"place":5,"name":"123vf","value":2,"text":"2"},
@@ -21,15 +21,15 @@
       {"place":10,"name":"16_ifaa16","value":1,"text":"1"}
     ],
     "time": [
-      {"place":1,"name":"NeyJe","value":68,"text":"1h 8m"},
-      {"place":2,"name":"bobragovno","value":68,"text":"1h 8m"},
+      {"place":1,"name":"NeyJe","value":69,"text":"1h 9m"},
+      {"place":2,"name":"bobragovno","value":69,"text":"1h 9m"},
       {"place":3,"name":"KUpy_AStro","value":63,"text":"1h 3m"},
-      {"place":4,"name":"aroncikk","value":61,"text":"1h 1m"},
-      {"place":5,"name":"fantik1","value":56,"text":"56m"},
-      {"place":6,"name":"123vf","value":55,"text":"55m"},
+      {"place":4,"name":"aroncikk","value":62,"text":"1h 2m"},
+      {"place":5,"name":"fantik1","value":57,"text":"57m"},
+      {"place":6,"name":"123vf","value":56,"text":"56m"},
       {"place":7,"name":"grno6767","value":52,"text":"52m"},
       {"place":8,"name":"zhans3330","value":50,"text":"50m"},
-      {"place":9,"name":"MadFlaps","value":47,"text":"47m"},
+      {"place":9,"name":"MadFlaps","value":48,"text":"48m"},
       {"place":10,"name":"O_O","value":38,"text":"38m"}
     ],
     "points": [
