@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 13:04",
+  "updated": "15.11.2026 13:05",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":2,"text":"2"},
@@ -23,14 +23,14 @@
     ],
     "time": [
       {"place":1,"name":"bobragovno","value":124,"text":"2h 4m"},
-      {"place":2,"name":"aroncikk","value":97,"text":"1h 37m"},
-      {"place":3,"name":"MadFlaps","value":90,"text":"1h 30m"},
-      {"place":4,"name":"fantik1","value":89,"text":"1h 29m"},
+      {"place":2,"name":"aroncikk","value":98,"text":"1h 38m"},
+      {"place":3,"name":"MadFlaps","value":91,"text":"1h 31m"},
+      {"place":4,"name":"fantik1","value":90,"text":"1h 30m"},
       {"place":5,"name":"NeyJe","value":77,"text":"1h 17m"},
       {"place":6,"name":"123vf","value":68,"text":"1h 8m"},
       {"place":7,"name":"KUpy_AStro","value":66,"text":"1h 6m"},
       {"place":8,"name":"grno6767","value":52,"text":"52m"},
-      {"place":9,"name":"zhans3330","value":51,"text":"51m"},
+      {"place":9,"name":"zhans3330","value":52,"text":"52m"},
       {"place":10,"name":"O_O","value":38,"text":"38m"}
     ],
     "points": [
