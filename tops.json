@@ -1,5 +1,5 @@
 {
-  "updated": "15.11.2026 21:26",
+  "updated": "15.11.2026 21:27",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -27,7 +27,7 @@
     ],
     "time": [
       {"place":1,"name":"zhans3330","value":366,"text":"6h 6m"},
-      {"place":2,"name":"zalypa89776","value":365,"text":"6h 5m"},
+      {"place":2,"name":"zalypa89776","value":366,"text":"6h 6m"},
       {"place":3,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":4,"name":"KUpy_AStro","value":212,"text":"3h 32m"},
       {"place":5,"name":"aroncikk","value":206,"text":"3h 26m"},
@@ -47,7 +47,7 @@
       {"place":7,"name":"sashaemo","value":20,"text":"20"},
       {"place":8,"name":"ksu50uh","value":20,"text":"20"},
       {"place":9,"name":"S0mO_Klown","value":20,"text":"20"},
-      {"place":10,"name":"ya_chto_nyb41k_","value":20,"text":"20"}
+      {"place":10,"name":"ya_chto_nyb41k_","value":10,"text":"10"}
     ]
   }
 }
