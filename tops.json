@@ -1,10 +1,10 @@
 {
-  "updated": "16.11.2026 21:20",
+  "updated": "16.11.2026 21:22",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":15,"text":"15"},
       {"place":2,"name":"zalypa89776","value":10,"text":"10"},
-      {"place":3,"name":"zhans3330","value":8,"text":"8"},
+      {"place":3,"name":"zhans3330","value":9,"text":"9"},
       {"place":4,"name":"KUpy_AStro","value":8,"text":"8"},
       {"place":5,"name":"O_O","value":6,"text":"6"},
       {"place":6,"name":"MadFlaps","value":3,"text":"3"},
@@ -17,8 +17,8 @@
       {"place":1,"name":"bobragovno","value":35,"text":"35"},
       {"place":2,"name":"ebyuwu","value":18,"text":"18"},
       {"place":3,"name":"HeavyEnvy","value":17,"text":"17"},
-      {"place":4,"name":"Sigma22845255","value":14,"text":"14"},
-      {"place":5,"name":"WDanaBatat1488W","value":13,"text":"13"},
+      {"place":4,"name":"WDanaBatat1488W","value":14,"text":"14"},
+      {"place":5,"name":"Sigma22845255","value":14,"text":"14"},
       {"place":6,"name":"KUpy_AStro","value":12,"text":"12"},
       {"place":7,"name":"zalypa89776","value":12,"text":"12"},
       {"place":8,"name":"fantik1","value":11,"text":"11"},
@@ -26,11 +26,11 @@
       {"place":10,"name":"BRENDO","value":10,"text":"10"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":897,"text":"14h 57m"},
-      {"place":2,"name":"zhans3330","value":508,"text":"8h 28m"},
+      {"place":1,"name":"zalypa89776","value":899,"text":"14h 59m"},
+      {"place":2,"name":"zhans3330","value":510,"text":"8h 30m"},
       {"place":3,"name":"aroncikk","value":481,"text":"8h 1m"},
-      {"place":4,"name":"MadFlaps","value":452,"text":"7h 32m"},
-      {"place":5,"name":"WDanaBatat1488W","value":390,"text":"6h 30m"},
+      {"place":4,"name":"MadFlaps","value":454,"text":"7h 34m"},
+      {"place":5,"name":"WDanaBatat1488W","value":392,"text":"6h 32m"},
       {"place":6,"name":"KUpy_AStro","value":371,"text":"6h 11m"},
       {"place":7,"name":"bobragovno","value":353,"text":"5h 53m"},
       {"place":8,"name":"Sigma22845255","value":289,"text":"4h 49m"},
