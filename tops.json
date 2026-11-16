@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 16:26",
+  "updated": "16.11.2026 16:28",
   "tops": {
     "kills": [
       {"place":1,"name":"zalypa89776","value":8,"text":"8"},
@@ -14,7 +14,7 @@
       {"place":10,"name":"bobragovno","value":1,"text":"1"}
     ],
     "deaths": [
-      {"place":1,"name":"bobragovno","value":17,"text":"17"},
+      {"place":1,"name":"bobragovno","value":19,"text":"19"},
       {"place":2,"name":"ebyuwu","value":17,"text":"17"},
       {"place":3,"name":"HeavyEnvy","value":17,"text":"17"},
       {"place":4,"name":"KUpy_AStro","value":11,"text":"11"},
@@ -22,17 +22,17 @@
       {"place":6,"name":"BRENDO","value":10,"text":"10"},
       {"place":7,"name":"fantik1","value":9,"text":"9"},
       {"place":8,"name":"TUser","value":9,"text":"9"},
-      {"place":9,"name":"NeyJe","value":7,"text":"7"},
-      {"place":10,"name":"zalypa89776","value":7,"text":"7"}
+      {"place":9,"name":"zalypa89776","value":9,"text":"9"},
+      {"place":10,"name":"NeyJe","value":7,"text":"7"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":650,"text":"10h 50m"},
+      {"place":1,"name":"zalypa89776","value":652,"text":"10h 52m"},
       {"place":2,"name":"zhans3330","value":366,"text":"6h 6m"},
-      {"place":3,"name":"aroncikk","value":307,"text":"5h 7m"},
+      {"place":3,"name":"aroncikk","value":309,"text":"5h 9m"},
       {"place":4,"name":"MadFlaps","value":307,"text":"5h 7m"},
       {"place":5,"name":"WDanaBatat1488W","value":269,"text":"4h 29m"},
       {"place":6,"name":"KUpy_AStro","value":254,"text":"4h 14m"},
-      {"place":7,"name":"bobragovno","value":245,"text":"4h 5m"},
+      {"place":7,"name":"bobragovno","value":247,"text":"4h 7m"},
       {"place":8,"name":"fantik1","value":212,"text":"3h 32m"},
       {"place":9,"name":"16_ifaa16","value":182,"text":"3h 2m"},
       {"place":10,"name":"O_O","value":167,"text":"2h 47m"}
