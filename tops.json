@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 11:57",
+  "updated": "16.11.2026 11:59",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -16,7 +16,7 @@
     "deaths": [
       {"place":1,"name":"ebyuwu","value":17,"text":"17"},
       {"place":2,"name":"HeavyEnvy","value":17,"text":"17"},
-      {"place":3,"name":"bobragovno","value":13,"text":"13"},
+      {"place":3,"name":"bobragovno","value":14,"text":"14"},
       {"place":4,"name":"WDanaBatat1488W","value":11,"text":"11"},
       {"place":5,"name":"BRENDO","value":10,"text":"10"},
       {"place":6,"name":"fantik1","value":9,"text":"9"},
@@ -32,10 +32,10 @@
       {"place":4,"name":"WDanaBatat1488W","value":269,"text":"4h 29m"},
       {"place":5,"name":"aroncikk","value":254,"text":"4h 14m"},
       {"place":6,"name":"KUpy_AStro","value":216,"text":"3h 36m"},
-      {"place":7,"name":"fantik1","value":212,"text":"3h 32m"},
-      {"place":8,"name":"bobragovno","value":211,"text":"3h 31m"},
+      {"place":7,"name":"bobragovno","value":213,"text":"3h 33m"},
+      {"place":8,"name":"fantik1","value":212,"text":"3h 32m"},
       {"place":9,"name":"Sigma22845255","value":128,"text":"2h 8m"},
-      {"place":10,"name":"123vf","value":109,"text":"1h 49m"}
+      {"place":10,"name":"123vf","value":111,"text":"1h 51m"}
     ],
     "points": [
       {"place":1,"name":"_Anapanchik_","value":8860008,"text":"8860008"},
