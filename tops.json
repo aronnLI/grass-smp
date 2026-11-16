@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 18:18",
+  "updated": "16.11.2026 18:24",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":13,"text":"13"},
@@ -26,28 +26,18 @@
       {"place":10,"name":"TUser","value":9,"text":"9"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":747,"text":"12h 27m"},
-      {"place":2,"name":"aroncikk","value":399,"text":"6h 39m"},
+      {"place":1,"name":"zalypa89776","value":749,"text":"12h 29m"},
+      {"place":2,"name":"aroncikk","value":400,"text":"6h 40m"},
       {"place":3,"name":"zhans3330","value":366,"text":"6h 6m"},
-      {"place":4,"name":"MadFlaps","value":356,"text":"5h 56m"},
-      {"place":5,"name":"bobragovno","value":346,"text":"5h 46m"},
-      {"place":6,"name":"WDanaBatat1488W","value":318,"text":"5h 18m"},
-      {"place":7,"name":"KUpy_AStro","value":257,"text":"4h 17m"},
-      {"place":8,"name":"fantik1","value":223,"text":"3h 43m"},
-      {"place":9,"name":"16_ifaa16","value":190,"text":"3h 10m"},
+      {"place":4,"name":"MadFlaps","value":357,"text":"5h 57m"},
+      {"place":5,"name":"bobragovno","value":348,"text":"5h 48m"},
+      {"place":6,"name":"WDanaBatat1488W","value":320,"text":"5h 20m"},
+      {"place":7,"name":"KUpy_AStro","value":258,"text":"4h 18m"},
+      {"place":8,"name":"fantik1","value":224,"text":"3h 44m"},
+      {"place":9,"name":"16_ifaa16","value":192,"text":"3h 12m"},
       {"place":10,"name":"O_O","value":169,"text":"2h 49m"}
     ],
     "points": [
-      {"place":1,"name":"_Anapanchik_","value":8860008,"text":"8860008"},
-      {"place":2,"name":"O_O","value":234,"text":"234"},
-      {"place":3,"name":"aroncikk","value":193,"text":"193"},
-      {"place":4,"name":"Sigma22845255","value":171,"text":"171"},
-      {"place":5,"name":"fantik1","value":20,"text":"20"},
-      {"place":6,"name":"ebyuwu","value":20,"text":"20"},
-      {"place":7,"name":"sashaemo","value":20,"text":"20"},
-      {"place":8,"name":"ksu50uh","value":20,"text":"20"},
-      {"place":9,"name":"S0mO_Klown","value":20,"text":"20"},
-      {"place":10,"name":"bobragovno","value":8,"text":"8"}
     ]
   }
 }
