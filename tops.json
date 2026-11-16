@@ -1,12 +1,12 @@
 {
-  "updated": "16.11.2026 18:30",
+  "updated": "16.11.2026 18:32",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":13,"text":"13"},
       {"place":2,"name":"zalypa89776","value":9,"text":"9"},
       {"place":3,"name":"O_O","value":5,"text":"5"},
-      {"place":4,"name":"zhans3330","value":3,"text":"3"},
-      {"place":5,"name":"KUpy_AStro","value":3,"text":"3"},
+      {"place":4,"name":"KUpy_AStro","value":4,"text":"4"},
+      {"place":5,"name":"zhans3330","value":3,"text":"3"},
       {"place":6,"name":"WDanaBatat1488W","value":3,"text":"3"},
       {"place":7,"name":"bobragovno","value":2,"text":"2"},
       {"place":8,"name":"Banner_","value":2,"text":"2"},
@@ -26,16 +26,16 @@
       {"place":10,"name":"fantik1","value":9,"text":"9"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":755,"text":"12h 35m"},
-      {"place":2,"name":"aroncikk","value":401,"text":"6h 41m"},
+      {"place":1,"name":"zalypa89776","value":757,"text":"12h 37m"},
+      {"place":2,"name":"aroncikk","value":403,"text":"6h 43m"},
       {"place":3,"name":"zhans3330","value":366,"text":"6h 6m"},
       {"place":4,"name":"MadFlaps","value":357,"text":"5h 57m"},
       {"place":5,"name":"bobragovno","value":353,"text":"5h 53m"},
-      {"place":6,"name":"WDanaBatat1488W","value":326,"text":"5h 26m"},
-      {"place":7,"name":"KUpy_AStro","value":261,"text":"4h 21m"},
-      {"place":8,"name":"fantik1","value":227,"text":"3h 47m"},
-      {"place":9,"name":"16_ifaa16","value":198,"text":"3h 18m"},
-      {"place":10,"name":"Sigma22845255","value":171,"text":"2h 51m"}
+      {"place":6,"name":"WDanaBatat1488W","value":328,"text":"5h 28m"},
+      {"place":7,"name":"KUpy_AStro","value":263,"text":"4h 23m"},
+      {"place":8,"name":"fantik1","value":229,"text":"3h 49m"},
+      {"place":9,"name":"16_ifaa16","value":200,"text":"3h 20m"},
+      {"place":10,"name":"Sigma22845255","value":172,"text":"2h 52m"}
     ],
     "points": [
     ]
