@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 15:02",
+  "updated": "16.11.2026 15:04",
   "tops": {
     "kills": [
       {"place":1,"name":"zalypa89776","value":8,"text":"8"},
@@ -26,16 +26,16 @@
       {"place":10,"name":"123vf","value":6,"text":"6"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":610,"text":"10h 10m"},
+      {"place":1,"name":"zalypa89776","value":612,"text":"10h 12m"},
       {"place":2,"name":"zhans3330","value":366,"text":"6h 6m"},
       {"place":3,"name":"aroncikk","value":305,"text":"5h 5m"},
       {"place":4,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":5,"name":"WDanaBatat1488W","value":269,"text":"4h 29m"},
-      {"place":6,"name":"bobragovno","value":237,"text":"3h 57m"},
-      {"place":7,"name":"KUpy_AStro","value":236,"text":"3h 56m"},
+      {"place":6,"name":"KUpy_AStro","value":238,"text":"3h 58m"},
+      {"place":7,"name":"bobragovno","value":237,"text":"3h 57m"},
       {"place":8,"name":"fantik1","value":212,"text":"3h 32m"},
       {"place":9,"name":"16_ifaa16","value":182,"text":"3h 2m"},
-      {"place":10,"name":"O_O","value":159,"text":"2h 39m"}
+      {"place":10,"name":"O_O","value":161,"text":"2h 41m"}
     ],
     "points": [
       {"place":1,"name":"_Anapanchik_","value":8860008,"text":"8860008"},
