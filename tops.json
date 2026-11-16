@@ -1,12 +1,12 @@
 {
-  "updated": "16.11.2026 20:59",
+  "updated": "16.11.2026 21:02",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":15,"text":"15"},
       {"place":2,"name":"zalypa89776","value":10,"text":"10"},
       {"place":3,"name":"KUpy_AStro","value":8,"text":"8"},
-      {"place":4,"name":"zhans3330","value":6,"text":"6"},
-      {"place":5,"name":"O_O","value":5,"text":"5"},
+      {"place":4,"name":"O_O","value":6,"text":"6"},
+      {"place":5,"name":"zhans3330","value":6,"text":"6"},
       {"place":6,"name":"WDanaBatat1488W","value":3,"text":"3"},
       {"place":7,"name":"bobragovno","value":2,"text":"2"},
       {"place":8,"name":"Banner_","value":2,"text":"2"},
@@ -21,19 +21,19 @@
       {"place":5,"name":"KUpy_AStro","value":12,"text":"12"},
       {"place":6,"name":"zalypa89776","value":12,"text":"12"},
       {"place":7,"name":"fantik1","value":11,"text":"11"},
-      {"place":8,"name":"123vf","value":10,"text":"10"},
-      {"place":9,"name":"Sigma22845255","value":10,"text":"10"},
+      {"place":8,"name":"Sigma22845255","value":11,"text":"11"},
+      {"place":9,"name":"123vf","value":10,"text":"10"},
       {"place":10,"name":"BRENDO","value":10,"text":"10"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":877,"text":"14h 37m"},
-      {"place":2,"name":"zhans3330","value":488,"text":"8h 8m"},
+      {"place":1,"name":"zalypa89776","value":879,"text":"14h 39m"},
+      {"place":2,"name":"zhans3330","value":490,"text":"8h 10m"},
       {"place":3,"name":"aroncikk","value":481,"text":"8h 1m"},
-      {"place":4,"name":"MadFlaps","value":432,"text":"7h 12m"},
-      {"place":5,"name":"KUpy_AStro","value":371,"text":"6h 11m"},
-      {"place":6,"name":"WDanaBatat1488W","value":370,"text":"6h 10m"},
+      {"place":4,"name":"MadFlaps","value":434,"text":"7h 14m"},
+      {"place":5,"name":"WDanaBatat1488W","value":372,"text":"6h 12m"},
+      {"place":6,"name":"KUpy_AStro","value":371,"text":"6h 11m"},
       {"place":7,"name":"bobragovno","value":353,"text":"5h 53m"},
-      {"place":8,"name":"Sigma22845255","value":276,"text":"4h 36m"},
+      {"place":8,"name":"Sigma22845255","value":278,"text":"4h 38m"},
       {"place":9,"name":"fantik1","value":258,"text":"4h 18m"},
       {"place":10,"name":"16_ifaa16","value":216,"text":"3h 36m"}
     ],
