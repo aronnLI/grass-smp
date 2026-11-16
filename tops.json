@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 12:27",
+  "updated": "16.11.2026 12:29",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -16,7 +16,7 @@
     "deaths": [
       {"place":1,"name":"ebyuwu","value":17,"text":"17"},
       {"place":2,"name":"HeavyEnvy","value":17,"text":"17"},
-      {"place":3,"name":"bobragovno","value":14,"text":"14"},
+      {"place":3,"name":"bobragovno","value":15,"text":"15"},
       {"place":4,"name":"WDanaBatat1488W","value":11,"text":"11"},
       {"place":5,"name":"BRENDO","value":10,"text":"10"},
       {"place":6,"name":"fantik1","value":9,"text":"9"},
@@ -31,11 +31,11 @@
       {"place":3,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":4,"name":"WDanaBatat1488W","value":269,"text":"4h 29m"},
       {"place":5,"name":"aroncikk","value":254,"text":"4h 14m"},
-      {"place":6,"name":"bobragovno","value":232,"text":"3h 52m"},
+      {"place":6,"name":"bobragovno","value":234,"text":"3h 54m"},
       {"place":7,"name":"KUpy_AStro","value":216,"text":"3h 36m"},
       {"place":8,"name":"fantik1","value":212,"text":"3h 32m"},
-      {"place":9,"name":"123vf","value":139,"text":"2h 19m"},
-      {"place":10,"name":"16_ifaa16","value":135,"text":"2h 15m"}
+      {"place":9,"name":"123vf","value":141,"text":"2h 21m"},
+      {"place":10,"name":"16_ifaa16","value":137,"text":"2h 17m"}
     ],
     "points": [
       {"place":1,"name":"_Anapanchik_","value":8860008,"text":"8860008"},
