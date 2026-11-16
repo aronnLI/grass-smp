@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 13:36",
+  "updated": "16.11.2026 13:38",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":6,"text":"6"},
@@ -26,7 +26,7 @@
       {"place":10,"name":"123vf","value":6,"text":"6"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":538,"text":"8h 58m"},
+      {"place":1,"name":"zalypa89776","value":540,"text":"9h"},
       {"place":2,"name":"zhans3330","value":366,"text":"6h 6m"},
       {"place":3,"name":"MadFlaps","value":290,"text":"4h 50m"},
       {"place":4,"name":"WDanaBatat1488W","value":269,"text":"4h 29m"},
@@ -34,7 +34,7 @@
       {"place":6,"name":"bobragovno","value":237,"text":"3h 57m"},
       {"place":7,"name":"KUpy_AStro","value":216,"text":"3h 36m"},
       {"place":8,"name":"fantik1","value":212,"text":"3h 32m"},
-      {"place":9,"name":"16_ifaa16","value":179,"text":"2h 59m"},
+      {"place":9,"name":"16_ifaa16","value":181,"text":"3h 1m"},
       {"place":10,"name":"123vf","value":144,"text":"2h 24m"}
     ],
     "points": [
@@ -43,11 +43,11 @@
       {"place":3,"name":"aroncikk","value":193,"text":"193"},
       {"place":4,"name":"Sigma22845255","value":181,"text":"181"},
       {"place":5,"name":"fantik1","value":20,"text":"20"},
-      {"place":6,"name":"16_ifaa16","value":20,"text":"20"},
-      {"place":7,"name":"ebyuwu","value":20,"text":"20"},
-      {"place":8,"name":"sashaemo","value":20,"text":"20"},
-      {"place":9,"name":"ksu50uh","value":20,"text":"20"},
-      {"place":10,"name":"S0mO_Klown","value":20,"text":"20"}
+      {"place":6,"name":"ebyuwu","value":20,"text":"20"},
+      {"place":7,"name":"sashaemo","value":20,"text":"20"},
+      {"place":8,"name":"ksu50uh","value":20,"text":"20"},
+      {"place":9,"name":"S0mO_Klown","value":20,"text":"20"},
+      {"place":10,"name":"bobragovno","value":8,"text":"8"}
     ]
   }
 }
