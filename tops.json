@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 10:16",
+  "updated": "17.11.2026 10:18",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
@@ -15,7 +15,7 @@
     ],
     "deaths": [
       {"place":1,"name":"bobragovno","value":35,"text":"35"},
-      {"place":2,"name":"ebyuwu","value":20,"text":"20"},
+      {"place":2,"name":"ebyuwu","value":21,"text":"21"},
       {"place":3,"name":"HeavyEnvy","value":17,"text":"17"},
       {"place":4,"name":"WDanaBatat1488W","value":14,"text":"14"},
       {"place":5,"name":"Sigma22845255","value":14,"text":"14"},
@@ -42,12 +42,12 @@
       {"place":2,"name":"O_O","value":187,"text":"187"},
       {"place":3,"name":"Sigma22845255","value":171,"text":"171"},
       {"place":4,"name":"Vova62rus","value":140,"text":"140"},
-      {"place":5,"name":"Zenvyro","value":30,"text":"30"},
-      {"place":6,"name":"ya_ne_pro_qq1","value":30,"text":"30"},
-      {"place":7,"name":"S0mO_Klown","value":20,"text":"20"},
-      {"place":8,"name":"fantik1","value":20,"text":"20"},
-      {"place":9,"name":"0mafin0","value":20,"text":"20"},
-      {"place":10,"name":"Noob194I","value":20,"text":"20"}
+      {"place":5,"name":"ebyuwu","value":40,"text":"40"},
+      {"place":6,"name":"Zenvyro","value":30,"text":"30"},
+      {"place":7,"name":"ya_ne_pro_qq1","value":30,"text":"30"},
+      {"place":8,"name":"S0mO_Klown","value":20,"text":"20"},
+      {"place":9,"name":"fantik1","value":20,"text":"20"},
+      {"place":10,"name":"0mafin0","value":20,"text":"20"}
     ]
   }
 }
