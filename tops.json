@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 11:10",
+  "updated": "17.11.2026 11:12",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
@@ -8,9 +8,9 @@
       {"place":4,"name":"KUpy_AStro","value":8,"text":"8"},
       {"place":5,"name":"O_O","value":6,"text":"6"},
       {"place":6,"name":"MadFlaps","value":3,"text":"3"},
-      {"place":7,"name":"WDanaBatat1488W","value":3,"text":"3"},
-      {"place":8,"name":"bobragovno","value":2,"text":"2"},
-      {"place":9,"name":"Banner_","value":2,"text":"2"},
+      {"place":7,"name":"Banner_","value":3,"text":"3"},
+      {"place":8,"name":"WDanaBatat1488W","value":3,"text":"3"},
+      {"place":9,"name":"bobragovno","value":2,"text":"2"},
       {"place":10,"name":"TUser","value":2,"text":"2"}
     ],
     "deaths": [
