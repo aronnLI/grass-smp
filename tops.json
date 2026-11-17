@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 20:40",
+  "updated": "17.11.2026 20:42",
   "tops": {
     "kills": [
       {"place":1,"name":"zhans3330","value":18,"text":"18"},
@@ -9,15 +9,15 @@
       {"place":5,"name":"O_O","value":6,"text":"6"},
       {"place":6,"name":"ComBane","value":5,"text":"5"},
       {"place":7,"name":"MadFlaps","value":4,"text":"4"},
-      {"place":8,"name":"Banner_","value":3,"text":"3"},
-      {"place":9,"name":"WDanaBatat1488W","value":3,"text":"3"},
-      {"place":10,"name":"MIllsiXX","value":3,"text":"3"}
+      {"place":8,"name":"MIllsiXX","value":4,"text":"4"},
+      {"place":9,"name":"Banner_","value":3,"text":"3"},
+      {"place":10,"name":"WDanaBatat1488W","value":3,"text":"3"}
     ],
     "deaths": [
       {"place":1,"name":"bobragovno","value":38,"text":"38"},
       {"place":2,"name":"ebyuwu","value":23,"text":"23"},
       {"place":3,"name":"zalypa89776","value":22,"text":"22"},
-      {"place":4,"name":"Sigma22845255","value":20,"text":"20"},
+      {"place":4,"name":"Sigma22845255","value":21,"text":"21"},
       {"place":5,"name":"HeavyEnvy","value":17,"text":"17"},
       {"place":6,"name":"KUpy_AStro","value":16,"text":"16"},
       {"place":7,"name":"TUser","value":14,"text":"14"},
@@ -28,12 +28,12 @@
     "time": [
       {"place":1,"name":"zalypa89776","value":1341,"text":"22h 21m"},
       {"place":2,"name":"MadFlaps","value":765,"text":"12h 45m"},
-      {"place":3,"name":"zhans3330","value":736,"text":"12h 16m"},
+      {"place":3,"name":"zhans3330","value":737,"text":"12h 17m"},
       {"place":4,"name":"aroncikk","value":600,"text":"10h"},
       {"place":5,"name":"KUpy_AStro","value":416,"text":"6h 56m"},
       {"place":6,"name":"WDanaBatat1488W","value":394,"text":"6h 34m"},
       {"place":7,"name":"bobragovno","value":374,"text":"6h 14m"},
-      {"place":8,"name":"Sigma22845255","value":304,"text":"5h 4m"},
+      {"place":8,"name":"Sigma22845255","value":305,"text":"5h 5m"},
       {"place":9,"name":"fantik1","value":295,"text":"4h 55m"},
       {"place":10,"name":"O_O","value":229,"text":"3h 49m"}
     ],
