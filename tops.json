@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 19:19",
+  "updated": "17.11.2026 19:21",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
@@ -27,9 +27,9 @@
     ],
     "time": [
       {"place":1,"name":"zalypa89776","value":1276,"text":"21h 16m"},
-      {"place":2,"name":"MadFlaps","value":734,"text":"12h 14m"},
-      {"place":3,"name":"zhans3330","value":664,"text":"11h 4m"},
-      {"place":4,"name":"aroncikk","value":598,"text":"9h 58m"},
+      {"place":2,"name":"MadFlaps","value":736,"text":"12h 16m"},
+      {"place":3,"name":"zhans3330","value":666,"text":"11h 6m"},
+      {"place":4,"name":"aroncikk","value":600,"text":"10h"},
       {"place":5,"name":"KUpy_AStro","value":416,"text":"6h 56m"},
       {"place":6,"name":"WDanaBatat1488W","value":394,"text":"6h 34m"},
       {"place":7,"name":"bobragovno","value":374,"text":"6h 14m"},
@@ -38,16 +38,16 @@
       {"place":10,"name":"O_O","value":229,"text":"3h 49m"}
     ],
     "points": [
-      {"place":1,"name":"aroncikk","value":39500293,"text":"39500293"},
-      {"place":2,"name":"O_O","value":187,"text":"187"},
-      {"place":3,"name":"Sigma22845255","value":171,"text":"171"},
-      {"place":4,"name":"Vova62rus","value":140,"text":"140"},
-      {"place":5,"name":"ebyuwu","value":40,"text":"40"},
-      {"place":6,"name":"Zenvyro","value":30,"text":"30"},
-      {"place":7,"name":"ya_ne_pro_qq1","value":30,"text":"30"},
-      {"place":8,"name":"S0mO_Klown","value":20,"text":"20"},
-      {"place":9,"name":"fantik1","value":20,"text":"20"},
-      {"place":10,"name":"0mafin0","value":20,"text":"20"}
+      {"place":1,"name":"O_O","value":187,"text":"187"},
+      {"place":2,"name":"Sigma22845255","value":171,"text":"171"},
+      {"place":3,"name":"Vova62rus","value":140,"text":"140"},
+      {"place":4,"name":"ebyuwu","value":40,"text":"40"},
+      {"place":5,"name":"Zenvyro","value":30,"text":"30"},
+      {"place":6,"name":"ya_ne_pro_qq1","value":30,"text":"30"},
+      {"place":7,"name":"S0mO_Klown","value":20,"text":"20"},
+      {"place":8,"name":"fantik1","value":20,"text":"20"},
+      {"place":9,"name":"0mafin0","value":20,"text":"20"},
+      {"place":10,"name":"Noob194I","value":20,"text":"20"}
     ]
   }
 }
