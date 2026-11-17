@@ -1,9 +1,9 @@
 {
-  "updated": "17.11.2026 17:14",
+  "updated": "17.11.2026 17:16",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
-      {"place":2,"name":"zalypa89776","value":12,"text":"12"},
+      {"place":2,"name":"zalypa89776","value":13,"text":"13"},
       {"place":3,"name":"zhans3330","value":9,"text":"9"},
       {"place":4,"name":"KUpy_AStro","value":8,"text":"8"},
       {"place":5,"name":"O_O","value":6,"text":"6"},
@@ -23,11 +23,11 @@
       {"place":7,"name":"Arbuzik700123","value":13,"text":"13"},
       {"place":8,"name":"KUpy_AStro","value":12,"text":"12"},
       {"place":9,"name":"fantik1","value":12,"text":"12"},
-      {"place":10,"name":"BRENDO","value":11,"text":"11"}
+      {"place":10,"name":"BRENDO","value":12,"text":"12"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":1182,"text":"19h 42m"},
-      {"place":2,"name":"MadFlaps","value":634,"text":"10h 34m"},
+      {"place":1,"name":"zalypa89776","value":1184,"text":"19h 44m"},
+      {"place":2,"name":"MadFlaps","value":636,"text":"10h 36m"},
       {"place":3,"name":"aroncikk","value":591,"text":"9h 51m"},
       {"place":4,"name":"zhans3330","value":587,"text":"9h 47m"},
       {"place":5,"name":"WDanaBatat1488W","value":394,"text":"6h 34m"},
