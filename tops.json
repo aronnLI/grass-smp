@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 19:16",
+  "updated": "17.11.2026 19:19",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
@@ -27,9 +27,9 @@
     ],
     "time": [
       {"place":1,"name":"zalypa89776","value":1276,"text":"21h 16m"},
-      {"place":2,"name":"MadFlaps","value":731,"text":"12h 11m"},
-      {"place":3,"name":"zhans3330","value":661,"text":"11h 1m"},
-      {"place":4,"name":"aroncikk","value":595,"text":"9h 55m"},
+      {"place":2,"name":"MadFlaps","value":734,"text":"12h 14m"},
+      {"place":3,"name":"zhans3330","value":664,"text":"11h 4m"},
+      {"place":4,"name":"aroncikk","value":598,"text":"9h 58m"},
       {"place":5,"name":"KUpy_AStro","value":416,"text":"6h 56m"},
       {"place":6,"name":"WDanaBatat1488W","value":394,"text":"6h 34m"},
       {"place":7,"name":"bobragovno","value":374,"text":"6h 14m"},
@@ -38,7 +38,7 @@
       {"place":10,"name":"O_O","value":229,"text":"3h 49m"}
     ],
     "points": [
-      {"place":1,"name":"aroncikk","value":293,"text":"293"},
+      {"place":1,"name":"aroncikk","value":39500293,"text":"39500293"},
       {"place":2,"name":"O_O","value":187,"text":"187"},
       {"place":3,"name":"Sigma22845255","value":171,"text":"171"},
       {"place":4,"name":"Vova62rus","value":140,"text":"140"},
