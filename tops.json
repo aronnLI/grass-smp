@@ -1,10 +1,10 @@
 {
-  "updated": "17.11.2026 18:39",
+  "updated": "17.11.2026 18:41",
   "tops": {
     "kills": [
       {"place":1,"name":"aroncikk","value":16,"text":"16"},
       {"place":2,"name":"zalypa89776","value":14,"text":"14"},
-      {"place":3,"name":"zhans3330","value":10,"text":"10"},
+      {"place":3,"name":"zhans3330","value":11,"text":"11"},
       {"place":4,"name":"KUpy_AStro","value":8,"text":"8"},
       {"place":5,"name":"O_O","value":6,"text":"6"},
       {"place":6,"name":"MadFlaps","value":4,"text":"4"},
@@ -18,23 +18,23 @@
       {"place":2,"name":"ebyuwu","value":23,"text":"23"},
       {"place":3,"name":"zalypa89776","value":22,"text":"22"},
       {"place":4,"name":"HeavyEnvy","value":17,"text":"17"},
-      {"place":5,"name":"TUser","value":14,"text":"14"},
-      {"place":6,"name":"WDanaBatat1488W","value":14,"text":"14"},
-      {"place":7,"name":"Sigma22845255","value":14,"text":"14"},
+      {"place":5,"name":"Sigma22845255","value":15,"text":"15"},
+      {"place":6,"name":"TUser","value":14,"text":"14"},
+      {"place":7,"name":"WDanaBatat1488W","value":14,"text":"14"},
       {"place":8,"name":"BRENDO","value":14,"text":"14"},
       {"place":9,"name":"Arbuzik700123","value":13,"text":"13"},
       {"place":10,"name":"KUpy_AStro","value":12,"text":"12"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":1266,"text":"21h 6m"},
-      {"place":2,"name":"MadFlaps","value":695,"text":"11h 35m"},
-      {"place":3,"name":"zhans3330","value":625,"text":"10h 25m"},
+      {"place":1,"name":"zalypa89776","value":1268,"text":"21h 8m"},
+      {"place":2,"name":"MadFlaps","value":697,"text":"11h 37m"},
+      {"place":3,"name":"zhans3330","value":627,"text":"10h 27m"},
       {"place":4,"name":"aroncikk","value":591,"text":"9h 51m"},
       {"place":5,"name":"WDanaBatat1488W","value":394,"text":"6h 34m"},
-      {"place":6,"name":"KUpy_AStro","value":388,"text":"6h 28m"},
+      {"place":6,"name":"KUpy_AStro","value":390,"text":"6h 30m"},
       {"place":7,"name":"bobragovno","value":374,"text":"6h 14m"},
       {"place":8,"name":"fantik1","value":295,"text":"4h 55m"},
-      {"place":9,"name":"Sigma22845255","value":289,"text":"4h 49m"},
+      {"place":9,"name":"Sigma22845255","value":291,"text":"4h 51m"},
       {"place":10,"name":"O_O","value":229,"text":"3h 49m"}
     ],
     "points": [
