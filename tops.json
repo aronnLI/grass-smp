@@ -1,5 +1,5 @@
 {
-  "updated": "18.11.2026 12:57",
+  "updated": "18.11.2026 12:59",
   "tops": {
     "kills": [
       {"place":1,"name":"zhans3330","value":18,"text":"18"},
@@ -26,7 +26,7 @@
       {"place":10,"name":"Arbuzik700123","value":13,"text":"13"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":1431,"text":"23h 51m"},
+      {"place":1,"name":"zalypa89776","value":1433,"text":"23h 53m"},
       {"place":2,"name":"zhans3330","value":811,"text":"13h 31m"},
       {"place":3,"name":"MadFlaps","value":765,"text":"12h 45m"},
       {"place":4,"name":"aroncikk","value":600,"text":"10h"},
@@ -35,7 +35,7 @@
       {"place":7,"name":"bobragovno","value":374,"text":"6h 14m"},
       {"place":8,"name":"Sigma22845255","value":305,"text":"5h 5m"},
       {"place":9,"name":"fantik1","value":295,"text":"4h 55m"},
-      {"place":10,"name":"16_ifaa16","value":270,"text":"4h 30m"}
+      {"place":10,"name":"16_ifaa16","value":272,"text":"4h 32m"}
     ],
     "points": [
       {"place":1,"name":"O_O","value":187,"text":"187"},
