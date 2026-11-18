@@ -1,5 +1,5 @@
 {
-  "updated": "18.11.2026 21:16",
+  "updated": "18.11.2026 21:18",
   "tops": {
     "kills": [
       {"place":1,"name":"zalypa89776","value":20,"text":"20"},
@@ -15,7 +15,7 @@
     ],
     "deaths": [
       {"place":1,"name":"bobragovno","value":38,"text":"38"},
-      {"place":2,"name":"zalypa89776","value":29,"text":"29"},
+      {"place":2,"name":"zalypa89776","value":30,"text":"30"},
       {"place":3,"name":"ebyuwu","value":23,"text":"23"},
       {"place":4,"name":"Sigma22845255","value":21,"text":"21"},
       {"place":5,"name":"HeavyEnvy","value":17,"text":"17"},
@@ -26,7 +26,7 @@
       {"place":10,"name":"Arbuzik700123","value":13,"text":"13"}
     ],
     "time": [
-      {"place":1,"name":"zalypa89776","value":1835,"text":"30h 35m"},
+      {"place":1,"name":"zalypa89776","value":1837,"text":"30h 37m"},
       {"place":2,"name":"zhans3330","value":823,"text":"13h 43m"},
       {"place":3,"name":"MadFlaps","value":779,"text":"12h 59m"},
       {"place":4,"name":"aroncikk","value":627,"text":"10h 27m"},
